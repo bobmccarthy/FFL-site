@@ -1,6 +1,5 @@
 body {
-  padding-top: 4em;
-  margin: 0 1em; }
+  padding-top: 3em; }
 
 .friendships {
   color: #3879D9; }
@@ -40,9 +39,12 @@ body {
   margin-right: 23%;
   width: 34%; }
 
+.learnServe {
+  background-color: white; }
+
 .ican {
   font-size: 3em;
-  color: #DDEDDE;
+  color: red;
   padding-top: 1em;
   text-align: center;
   font-family: cursive; }
@@ -70,20 +72,27 @@ body {
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif;
   font-size: 1.2em; }
 
+.emptySpace {
+  height: 40em;
+  background-color: #E4E8F1; }
+
 .fut {
+  background-color: yellow;
   margin: 2em 2em; }
 
 .future {
   text-align: center;
-  background-color: yellow;
-  color: green;
-  border-radius: 3em;
+  color: #80B700;
+  line-height: 1.5em;
   font-family: futura;
-  font-size: 2em; }
+  font-size: 2.5em;
+  padding: 0 auto; }
 
 .team {
-  background-color: pink;
-  padding-top: .3em; }
+  border-radius: 2em;
+  padding-top: .3em;
+  color: white;
+  background: linear-gradient(to bottom, #1FAB1B, #8DC525); }
 
 footer {
   /*line-height: 5em;*/
@@ -106,3 +115,6 @@ a {
     position:relative; 
 }
 }*/
+@media screen and (min-width: 48em) {
+  .iserve {
+    float: right; } }
