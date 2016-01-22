@@ -66,13 +66,24 @@ nav button {
 
 .van {
   padding: 2em 2em;
-  margin-top: 3em; }
+  margin-top: 3em;
+  margin-bottom: 2em; }
 
 .uvan {
   padding: 4% 2em;
   text-align: center;
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif;
   font-size: 1.2em; }
+
+.fut {
+  background: linear-gradient(to bottom, white, #3D3D3A);
+  padding-bottom: 3em;
+  padding-top: 1em; }
+
+.future {
+  text-align: center;
+  font-family: futura;
+  font-size: 2.5em; }
 
 .textBlo {
   background-image: url("../images/Tigerpaw.jpg");
@@ -86,38 +97,44 @@ nav button {
     color: white;
     border-radius: 1em; }
 
+.galMain {
+  height: 50em;
+  text-align: center;
+  background: linear-gradient(to bottom, white, #7FD4F9);
+  padding: 2em 0 4em 0; }
+
 .slideshow {
-  width: 80%;
+  padding-top: 1em;
+  width: 60%;
   margin: 0 auto; }
 
 .item img {
   margin: 0 auto;
-  max-height: 30em; }
+  width: 100%; }
 
-.emptySpace {
-  height: 40em;
-  background-color: #E4E8F1; }
+.mapInfo {
+  margin: 1em; }
 
-.fut {
-  background-color: yellow;
-  margin: 2em 2em; }
+.images {
+  width: 90%;
+  padding-left: 10%; }
 
-.future {
-  text-align: center;
-  color: #80B700;
-  line-height: 1.5em;
-  font-family: futura;
-  font-size: 2.5em;
-  padding: 0 auto; }
+.bottomBit {
+  margin: 1em;
+  text-align: center; }
+  .bottomBit p {
+    display: inline;
+    font-size: 1.3em; }
 
-.team {
-  border-radius: 2em;
-  padding-top: .3em;
+.googleMapsButton {
+  display: inline;
+  background-color: blue;
   color: white;
-  background: linear-gradient(to bottom, #1FAB1B, #8DC525); }
+  border: none;
+  font-size: 1.3em;
+  margin-left: 0.5em; }
 
 footer {
-  /*line-height: 5em;*/
   text-align: center;
   color: white;
   background-color: #3D3D3A; }

@@ -58,6 +58,12 @@ module.exports = React.createClass({
 						<div className="uvan col-xs-12 col-md-6">FFL RECENTLY RECEIVED A GENEROUS DONATION FROM ANOTHER AREA NON-PROFIT - THE FRANKLIN FAMILY RANCH. Larry and Charlotte Franklin have answered a prayer by donating a 15 passenger van to Friendships for Life. With this donation, we can now more than double the size of the program. THANK YOU!</div>
 					</div>
 				</div>
+				<div className="fut container-fluid">
+					<div className="row">
+						<div className="future col-xs-12 col-sm-5">The Future is Bright!</div>
+						<div className="team col-xs-12 col-sm-6">Our team is currently using the facilities at Church of the Springs, in Dripping Spring. The plan to expand into our own building on the church grounds is on the horizon! </div>	
+					</div>
+				</div>
 			</div>
 			)
 	}

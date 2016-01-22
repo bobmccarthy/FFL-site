@@ -25,9 +25,9 @@ module.exports = React.createClass({
 			          			<li onClick={this.collapseIt}><a href="#">Home</a></li>
 			          			<li onClick={this.collapseIt}><a href="#about">About</a></li>
 			          			<li onClick={this.collapseIt}><a href="#gallery">Gallery</a></li>
-			          			<li onClick={this.collapseIt}><a href="#calendar">Calendar</a></li>
+			          			<li onClick={this.collapseIt}><a href="#calendar"></a></li>
 			          			<li onClick={this.collapseIt}><a href="#map">Contact/Map</a></li>
-			          			<li onClick={this.collapseIt}><a href="#blog">Blog</a></li>
+			          			<li onClick={this.collapseIt}><a href="#blog"></a></li>
 			        		</ul>
 			    		</div>
 			 		</div>

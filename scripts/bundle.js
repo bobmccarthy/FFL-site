@@ -32433,6 +32433,193 @@ module.exports = React.createClass({
 			'div',
 			null,
 			React.createElement(
+				'footer',
+				{ className: 'footer' },
+				React.createElement(
+					'div',
+					{ className: 'a row' },
+					React.createElement(
+						'div',
+						{ className: 'col-xs-12 col-sm-4' },
+						'© FriendshipsForLife 2015'
+					),
+					React.createElement(
+						'div',
+						{ className: 'col-xs-12 col-sm-4' },
+						React.createElement(
+							'a',
+							{ href: '#map' },
+							'Contact/Map'
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'col-xs-12 col-sm-4' },
+						React.createElement(
+							'a',
+							{ href: '#about' },
+							'About'
+						)
+					)
+				)
+			)
+		);
+	}
+
+});
+
+},{"react":161}],164:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	render: function render() {
+		return React.createElement(
+			'div',
+			null,
+			React.createElement(
+				'div',
+				{ className: 'galMain' },
+				React.createElement(
+					'h1',
+					null,
+					'We Love Having Fun!'
+				),
+				React.createElement(
+					'div',
+					{ className: 'slideshow' },
+					React.createElement(
+						'div',
+						{ id: 'carousel-example-generic', className: 'carousel slide', 'data-ride': 'carousel', 'data-interval': '6000' },
+						React.createElement(
+							'ol',
+							{ className: 'carousel-indicators' },
+							React.createElement('li', { 'data-target': '#carousel-example-generic', 'data-slide-to': '0', className: 'active' }),
+							React.createElement('li', { 'data-target': '#carousel-example-generic', 'data-slide-to': '1' }),
+							React.createElement('li', { 'data-target': '#carousel-example-generic', 'data-slide-to': '2' })
+						),
+						React.createElement(
+							'div',
+							{ className: 'carousel-inner' },
+							React.createElement(
+								'div',
+								{ className: 'item active' },
+								React.createElement('img', { className: 'computer1', src: '../../images/basketball.jpg' }),
+								React.createElement(
+									'div',
+									{ className: 'carousel-caption' },
+									React.createElement(
+										'h3',
+										null,
+										'Basketball'
+									)
+								)
+							),
+							React.createElement(
+								'div',
+								{ className: 'item' },
+								React.createElement('img', { className: 'adjust', src: '../../images/dance.jpg' }),
+								React.createElement(
+									'div',
+									{ className: 'carousel-caption' },
+									React.createElement(
+										'h3',
+										null,
+										'Dance!'
+									)
+								)
+							),
+							React.createElement(
+								'div',
+								{ className: 'item' },
+								React.createElement('img', { src: '../../images/new-van.jpg', alt: '...' }),
+								React.createElement(
+									'div',
+									{ className: 'carousel-caption' },
+									React.createElement(
+										'h3',
+										null,
+										'Our New Van!'
+									)
+								)
+							),
+							React.createElement(
+								'div',
+								{ className: 'item' },
+								React.createElement('img', { src: '../../images/bakin.jpg', alt: '...' }),
+								React.createElement(
+									'div',
+									{ className: 'carousel-caption' },
+									React.createElement(
+										'h3',
+										null,
+										'Doing some Baking!'
+									)
+								)
+							),
+							React.createElement(
+								'div',
+								{ className: 'item' },
+								React.createElement('img', { src: '../../images/basketball-lineup.jpg', alt: '...' }),
+								React.createElement(
+									'div',
+									{ className: 'carousel-caption' },
+									React.createElement(
+										'h3',
+										null,
+										'Basketball'
+									)
+								)
+							),
+							React.createElement(
+								'div',
+								{ className: 'item' },
+								React.createElement('img', { src: '../../images/bowling.jpg', alt: '...' }),
+								React.createElement(
+									'div',
+									{ className: 'carousel-caption' },
+									React.createElement(
+										'h3',
+										null,
+										'Bowling'
+									)
+								)
+							)
+						),
+						React.createElement(
+							'a',
+							{ className: 'left carousel-control', href: '#carousel-example-generic', role: 'button', 'data-slide': 'prev' },
+							React.createElement('span', { className: 'glyphicon glyphicon-chevron-left' })
+						),
+						React.createElement(
+							'a',
+							{ className: 'right carousel-control', href: '#carousel-example-generic', role: 'button', 'data-slide': 'next' },
+							React.createElement('span', { className: 'glyphicon glyphicon-chevron-right' })
+						)
+					)
+				)
+			)
+		);
+	}
+
+});
+
+},{"react":161}],165:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	render: function render() {
+		return React.createElement(
+			'div',
+			null,
+			React.createElement(
 				'div',
 				null,
 				React.createElement(
@@ -32539,13 +32726,82 @@ module.exports = React.createClass({
 						'FFL RECENTLY RECEIVED A GENEROUS DONATION FROM ANOTHER AREA NON-PROFIT - THE FRANKLIN FAMILY RANCH. Larry and Charlotte Franklin have answered a prayer by donating a 15 passenger van to Friendships for Life. With this donation, we can now more than double the size of the program. THANK YOU!'
 					)
 				)
+			),
+			React.createElement(
+				'div',
+				{ className: 'fut container-fluid' },
+				React.createElement(
+					'div',
+					{ className: 'row' },
+					React.createElement(
+						'div',
+						{ className: 'future col-xs-12 col-sm-5' },
+						'The Future is Bright!'
+					),
+					React.createElement(
+						'div',
+						{ className: 'team col-xs-12 col-sm-6' },
+						'Our team is currently using the facilities at Church of the Springs, in Dripping Spring. The plan to expand into our own building on the church grounds is on the horizon! '
+					)
+				)
 			)
 		);
 	}
 
 });
 
-},{"react":161}],164:[function(require,module,exports){
+},{"react":161}],166:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	render: function render() {
+		return React.createElement(
+			'div',
+			null,
+			React.createElement(
+				'div',
+				{ className: 'mapInfo' },
+				'Here is where we live!! Come visit us sometime!',
+				React.createElement('br', null),
+				'Our Address is: ',
+				React.createElement('br', null),
+				'230 Sports Park Rd',
+				React.createElement('br', null),
+				'Dripping Springs, TX 78620'
+			),
+			React.createElement(
+				'div',
+				{ className: 'map' },
+				React.createElement('img', { className: 'images', src: 'images/map.png' })
+			),
+			React.createElement(
+				'div',
+				{ className: 'bottomBit' },
+				React.createElement(
+					'p',
+					{ className: 'toSee' },
+					'To see map:'
+				),
+				React.createElement(
+					'a',
+					{ className: 'gB', href: 'https://www.google.com/maps/place/230+Sports+Park+Rd,+Dripping+Springs,+TX+78620/@30.1848712,-98.0843636,17z/data=!3m1!4b1!4m7!1m4!3m3!1s0x865b43d673632091:0xa2e39d7d657082a4!2s230+Sports+Park+Rd,+Dripping+Springs,+TX+78620!3b1!3m1!1s0x865b43d673632091:0xa2e39d7d657082a4' },
+					React.createElement(
+						'button',
+						{ className: 'googleMapsButton' },
+						'Click Here!'
+					)
+				)
+			)
+		);
+	}
+
+});
+
+},{"react":161}],167:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32642,11 +32898,7 @@ module.exports = React.createClass({
 							React.createElement(
 								'li',
 								{ onClick: this.collapseIt },
-								React.createElement(
-									'a',
-									{ href: '#calendar' },
-									'Calendar'
-								)
+								React.createElement('a', { href: '#calendar' })
 							),
 							React.createElement(
 								'li',
@@ -32660,11 +32912,7 @@ module.exports = React.createClass({
 							React.createElement(
 								'li',
 								{ onClick: this.collapseIt },
-								React.createElement(
-									'a',
-									{ href: '#blog' },
-									'Blog'
-								)
+								React.createElement('a', { href: '#blog' })
 							)
 						)
 					)
@@ -32693,7 +32941,7 @@ module.exports = React.createClass({
 
 });
 
-},{"react":161}],165:[function(require,module,exports){
+},{"react":161}],168:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32704,6 +32952,10 @@ var $ = require('jquery');
 var HomeComponent = require('./components/HomeComponent');
 var NavComponent = require('./components/NavComponent');
 var AboutComponent = require('./components/AboutComponent');
+var GalleryComponent = require('./components/GalleryComponent');
+var MapComponent = require('./components/MapComponent');
+var FooterComponent = require('./components/FooterComponent');
+
 // $(document).ready(function(){
 // 	$('.collapse').collapse();
 // })
@@ -32713,7 +32965,9 @@ $(document).on('ready', function () {
 	var Router = Backbone.Router.extend({
 		routes: {
 			'': 'home',
-			'about': 'about'
+			'about': 'about',
+			'gallery': 'gallery',
+			'map': 'map'
 		},
 
 		home: function home() {
@@ -32721,16 +32975,23 @@ $(document).on('ready', function () {
 		},
 		about: function about() {
 			ReactDOM.render(React.createElement(AboutComponent, null), document.getElementById('main'));
+		},
+		gallery: function gallery() {
+			ReactDOM.render(React.createElement(GalleryComponent, null), document.getElementById('main'));
+		},
+		map: function map() {
+			ReactDOM.render(React.createElement(MapComponent, null), document.getElementById('main'));
 		}
 	});
 
 	ReactDOM.render(React.createElement(NavComponent, null), document.getElementById('nav'));
+	ReactDOM.render(React.createElement(FooterComponent, null), document.getElementById('foote'));
 
 	var r = new Router();
 	Backbone.history.start();
 });
 
-},{"./components/AboutComponent":162,"./components/HomeComponent":163,"./components/NavComponent":164,"backbone":1,"jquery":4,"react":161,"react-dom":5}]},{},[165])
+},{"./components/AboutComponent":162,"./components/FooterComponent":163,"./components/GalleryComponent":164,"./components/HomeComponent":165,"./components/MapComponent":166,"./components/NavComponent":167,"backbone":1,"jquery":4,"react":161,"react-dom":5}]},{},[168])
 
 
 //# sourceMappingURL=bundle.js.map
