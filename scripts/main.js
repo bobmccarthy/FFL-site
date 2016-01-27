@@ -12,6 +12,7 @@ var AboutComponent = require('./components/AboutComponent');
 var GalleryComponent = require('./components/GalleryComponent');
 var MapComponent = require('./components/MapComponent');
 var FooterComponent = require('./components/FooterComponent');
+var ContactComponent = require('./components/ContactComponent');
 
 // $(document).ready(function(){
 // 	$('.collapse').collapse();
@@ -24,7 +25,8 @@ $(document).on('ready', function(){
 			'': 'home',
 			'about': 'about',
 			'gallery': 'gallery',
-			'map': 'map'
+			'map': 'map',
+			'contact': 'contact'
 		},
 
 		home: function(){
@@ -45,6 +47,11 @@ $(document).on('ready', function(){
 		},
 		map: function(){
 			ReactDOM.render(<MapComponent />,
+			document.getElementById('main'));
+			
+		},
+		contact: function(){
+			ReactDOM.render(<ContactComponent />,
 			document.getElementById('main'));
 			
 		}

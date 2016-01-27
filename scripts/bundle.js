@@ -32433,6 +32433,40 @@ module.exports = React.createClass({
 			'div',
 			null,
 			React.createElement(
+				'div',
+				{ className: 'formTag' },
+				'Please Shoot Us an Email!'
+			),
+			React.createElement(
+				'form',
+				{ action: 'MAILTO:bobmccarthyatx@gmail.com', method: 'get', encType: 'text/plain', className: 'cForm box-shadow--4dp' },
+				React.createElement('input', { placeholder: 'Your Email' }),
+				React.createElement('input', { placeholder: 'Type Subject Here' }),
+				React.createElement('textarea', { placeholder: 'Message' }),
+				React.createElement(
+					'button',
+					null,
+					'Submit'
+				)
+			)
+		);
+	}
+
+});
+
+},{"react":161}],164:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	render: function render() {
+		return React.createElement(
+			'div',
+			null,
+			React.createElement(
 				'footer',
 				{ className: 'footer' },
 				React.createElement(
@@ -32449,7 +32483,7 @@ module.exports = React.createClass({
 						React.createElement(
 							'a',
 							{ href: '#map' },
-							'Contact/Map'
+							'Map'
 						)
 					),
 					React.createElement(
@@ -32468,7 +32502,7 @@ module.exports = React.createClass({
 
 });
 
-},{"react":161}],164:[function(require,module,exports){
+},{"react":161}],165:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32607,7 +32641,7 @@ module.exports = React.createClass({
 
 });
 
-},{"react":161}],165:[function(require,module,exports){
+},{"react":161}],166:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32750,7 +32784,7 @@ module.exports = React.createClass({
 
 });
 
-},{"react":161}],166:[function(require,module,exports){
+},{"react":161}],167:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32801,7 +32835,7 @@ module.exports = React.createClass({
 
 });
 
-},{"react":161}],167:[function(require,module,exports){
+},{"react":161}],168:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32898,7 +32932,11 @@ module.exports = React.createClass({
 							React.createElement(
 								'li',
 								{ onClick: this.collapseIt },
-								React.createElement('a', { href: '#calendar' })
+								React.createElement(
+									'a',
+									{ href: '#calendar' },
+									'Calendar'
+								)
 							),
 							React.createElement(
 								'li',
@@ -32906,13 +32944,17 @@ module.exports = React.createClass({
 								React.createElement(
 									'a',
 									{ href: '#map' },
-									'Contact/Map'
+									'Map'
 								)
 							),
 							React.createElement(
 								'li',
 								{ onClick: this.collapseIt },
-								React.createElement('a', { href: '#blog' })
+								React.createElement(
+									'a',
+									{ href: '#contact' },
+									'Contact'
+								)
 							)
 						)
 					)
@@ -32941,7 +32983,7 @@ module.exports = React.createClass({
 
 });
 
-},{"react":161}],168:[function(require,module,exports){
+},{"react":161}],169:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32955,6 +32997,7 @@ var AboutComponent = require('./components/AboutComponent');
 var GalleryComponent = require('./components/GalleryComponent');
 var MapComponent = require('./components/MapComponent');
 var FooterComponent = require('./components/FooterComponent');
+var ContactComponent = require('./components/ContactComponent');
 
 // $(document).ready(function(){
 // 	$('.collapse').collapse();
@@ -32967,7 +33010,8 @@ $(document).on('ready', function () {
 			'': 'home',
 			'about': 'about',
 			'gallery': 'gallery',
-			'map': 'map'
+			'map': 'map',
+			'contact': 'contact'
 		},
 
 		home: function home() {
@@ -32981,6 +33025,9 @@ $(document).on('ready', function () {
 		},
 		map: function map() {
 			ReactDOM.render(React.createElement(MapComponent, null), document.getElementById('main'));
+		},
+		contact: function contact() {
+			ReactDOM.render(React.createElement(ContactComponent, null), document.getElementById('main'));
 		}
 	});
 
@@ -32991,7 +33038,7 @@ $(document).on('ready', function () {
 	Backbone.history.start();
 });
 
-},{"./components/AboutComponent":162,"./components/FooterComponent":163,"./components/GalleryComponent":164,"./components/HomeComponent":165,"./components/MapComponent":166,"./components/NavComponent":167,"backbone":1,"jquery":4,"react":161,"react-dom":5}]},{},[168])
+},{"./components/AboutComponent":162,"./components/ContactComponent":163,"./components/FooterComponent":164,"./components/GalleryComponent":165,"./components/HomeComponent":166,"./components/MapComponent":167,"./components/NavComponent":168,"backbone":1,"jquery":4,"react":161,"react-dom":5}]},{},[169])
 
 
 //# sourceMappingURL=bundle.js.map
