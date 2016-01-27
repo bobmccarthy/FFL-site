@@ -32439,7 +32439,7 @@ module.exports = React.createClass({
 			),
 			React.createElement(
 				'form',
-				{ action: 'MAILTO:bobmccarthyatx@gmail.com', method: 'get', encType: 'text/plain', className: 'cForm box-shadow--4dp' },
+				{ className: 'cForm box-shadow--4dp' },
 				React.createElement('input', { placeholder: 'Your Email' }),
 				React.createElement('input', { placeholder: 'Type Subject Here' }),
 				React.createElement('textarea', { placeholder: 'Message' }),
