@@ -32424,6 +32424,7 @@ module.exports = React.createClass({
 'use strict';
 
 var React = require('react');
+var MailModel = require('../models/MailModel');
 
 module.exports = React.createClass({
 	displayName: 'exports',
@@ -32439,10 +32440,10 @@ module.exports = React.createClass({
 			),
 			React.createElement(
 				'form',
-				{ className: 'cForm box-shadow--4dp' },
-				React.createElement('input', { placeholder: 'Your Email' }),
-				React.createElement('input', { placeholder: 'Type Subject Here' }),
-				React.createElement('textarea', { placeholder: 'Message' }),
+				{ onSubmit: this.mmessage, className: 'cForm box-shadow--4dp' },
+				React.createElement('input', { ref: 'emailM', placeholder: 'Your Email' }),
+				React.createElement('input', { ref: 'subject', placeholder: 'Type Subject Here' }),
+				React.createElement('textarea', { ref: 'message', placeholder: 'Message' }),
 				React.createElement(
 					'button',
 					null,
@@ -32450,11 +32451,26 @@ module.exports = React.createClass({
 				)
 			)
 		);
+	},
+	mmessage: function mmessage(e) {
+		var _this = this;
+
+		e.preventDefault();
+		var messageAdd = new MailModel();
+		messageAdd.set('MailAddress', this.refs.emailM.value);
+		messageAdd.set('Subject', this.refs.subject.value);
+		messageAdd.set('Message', this.refs.message.value);
+		messageAdd.save({
+			success: function success() {
+				window.alert('Your message has been sent!');
+				_this.props.router.navigate('#', { trigger: true });
+			}
+		});
 	}
 
 });
 
-},{"react":161}],164:[function(require,module,exports){
+},{"../models/MailModel":171,"react":161}],164:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32474,12 +32490,12 @@ module.exports = React.createClass({
 					{ className: 'a row' },
 					React.createElement(
 						'div',
-						{ className: 'col-xs-12 col-sm-4' },
+						{ className: 'col-xs-12 col-sm-3' },
 						'© FriendshipsForLife 2015'
 					),
 					React.createElement(
 						'div',
-						{ className: 'col-xs-12 col-sm-4' },
+						{ className: 'col-xs-12 col-sm-3' },
 						React.createElement(
 							'a',
 							{ href: '#map' },
@@ -32488,16 +32504,29 @@ module.exports = React.createClass({
 					),
 					React.createElement(
 						'div',
-						{ className: 'col-xs-12 col-sm-4' },
+						{ className: 'col-xs-12 col-sm-3' },
 						React.createElement(
 							'a',
 							{ href: '#about' },
 							'About'
 						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'col-xs-12 col-sm-3', onClick: this.signIn },
+						'Staff'
 					)
 				)
 			)
 		);
+	},
+	signIn: function signIn() {
+		var pas = window.prompt('password?');
+		if (pas == '1234') {
+			this.props.router.navigate('#receive', { trigger: true });
+		} else {
+			this.props.router.navigate('#contact', { trigger: true });
+		}
 	}
 
 });
@@ -32726,7 +32755,7 @@ module.exports = React.createClass({
 							React.createElement(
 								'div',
 								{ className: 'textblock col-xs-11 col-sm-7 col-md-3' },
-								'Friendships For Life is building opportunities with our special populations to enrich and bless their communities by sharing their uniquely individual, God given purpose through friendships and service.'
+								'Our work will include projects such as helping run the Springs Food Pantry, making and marketing our arts and crafts, and expanding our greeting card business.'
 							)
 						),
 						React.createElement(
@@ -32740,7 +32769,7 @@ module.exports = React.createClass({
 							React.createElement(
 								'div',
 								{ className: 'textblock col-xs-11 col-sm-7 col-md-3' },
-								'The Dripping Springs Community Foundation invited Friendships for Life to participate in the "Givin\' Where I\'m Livin" campaign in 2014. All donations made to Friendships for Life were matched. For more info click the cowboy hat!'
+								'Our main goal is to help our members of FFL find a path where they are able to serve their community. Each path is different, and each path requires educating not only the person themselves, but also those they come in contact with in order to help them achieve their goals.'
 							),
 							React.createElement('img', { className: 'saywhat-right col-xs-1', src: 'images/saywhat-right.jpg' })
 						)
@@ -32987,9 +33016,85 @@ module.exports = React.createClass({
 'use strict';
 
 var React = require('react');
+var MailModel = require('../models/MailModel');
+var MailQuery = new Parse.Query(MailModel);
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	getInitialState: function getInitialState() {
+		return {
+			messages: []
+
+		};
+	},
+	componentWillMount: function componentWillMount() {
+		var _this = this;
+
+		MailQuery.find().then(function (list) {
+			console.log(list);
+			_this.setState({ messages: list });
+		});
+	},
+
+	render: function render() {
+		var messageOutput = this.state.messages.map(function (message) {
+			return React.createElement(
+				'div',
+				{ key: message.id, className: 'incomingMessage box-shadow--4dp' },
+				React.createElement(
+					'div',
+					{ className: 'tim' },
+					message.get('createdAt').toString().substring(0, 10)
+				),
+				React.createElement(
+					'div',
+					{ className: 'sub' },
+					'Subject: ',
+					message.get('Subject')
+				),
+				React.createElement(
+					'div',
+					{ className: 'mes' },
+					'Message: ',
+					React.createElement('br', null),
+					message.get('Message')
+				),
+				React.createElement(
+					'div',
+					{ className: 'adr' },
+					'From: ',
+					React.createElement(
+						'a',
+						{ href: 'mailto:' + message.get('MailAddress'), target: '_top' },
+						message.get('MailAddress')
+					)
+				)
+			);
+		});
+		return React.createElement(
+			'div',
+			null,
+			React.createElement(
+				'div',
+				{ className: 'expText' },
+				'Read Messages From People:'
+			),
+			messageOutput
+		);
+	}
+
+});
+
+},{"../models/MailModel":171,"react":161}],170:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
 var ReactDOM = require('react-dom');
 var Backbone = require('backbone');
 var $ = require('jquery');
+
+Parse.initialize('PDHEqnp8cWE5PR49t4Ns5yLmlWmPTRdcJPc1VVqT', 'HtSll2s7EpkyghP4odHCcoJ6vqfYSbwBJDHa3yqA');
 
 var HomeComponent = require('./components/HomeComponent');
 var NavComponent = require('./components/NavComponent');
@@ -32998,6 +33103,7 @@ var GalleryComponent = require('./components/GalleryComponent');
 var MapComponent = require('./components/MapComponent');
 var FooterComponent = require('./components/FooterComponent');
 var ContactComponent = require('./components/ContactComponent');
+var RecieveMailComponent = require('./components/RecieveMailComponent');
 
 // $(document).ready(function(){
 // 	$('.collapse').collapse();
@@ -33011,34 +33117,50 @@ $(document).on('ready', function () {
 			'about': 'about',
 			'gallery': 'gallery',
 			'map': 'map',
-			'contact': 'contact'
+			'contact': 'contact',
+			'receive': 'receive'
 		},
 
 		home: function home() {
 			ReactDOM.render(React.createElement(HomeComponent, null), document.getElementById('main'));
+			ReactDOM.render(React.createElement(FooterComponent, { router: r }), document.getElementById('foote'));
 		},
 		about: function about() {
 			ReactDOM.render(React.createElement(AboutComponent, null), document.getElementById('main'));
+			ReactDOM.render(React.createElement(FooterComponent, { router: r }), document.getElementById('foote'));
 		},
 		gallery: function gallery() {
 			ReactDOM.render(React.createElement(GalleryComponent, null), document.getElementById('main'));
+			ReactDOM.render(React.createElement(FooterComponent, { router: r }), document.getElementById('foote'));
 		},
 		map: function map() {
 			ReactDOM.render(React.createElement(MapComponent, null), document.getElementById('main'));
+			ReactDOM.render(React.createElement(FooterComponent, { router: r }), document.getElementById('foote'));
 		},
 		contact: function contact() {
-			ReactDOM.render(React.createElement(ContactComponent, null), document.getElementById('main'));
+			ReactDOM.render(React.createElement(ContactComponent, { router: r }), document.getElementById('main'));
+			ReactDOM.render(React.createElement(FooterComponent, { router: r }), document.getElementById('foote'));
+		},
+		receive: function receive() {
+			ReactDOM.render(React.createElement(RecieveMailComponent, null), document.getElementById('main'));
+			ReactDOM.render(React.createElement(FooterComponent, { router: r }), document.getElementById('foote'));
 		}
 	});
 
-	ReactDOM.render(React.createElement(NavComponent, null), document.getElementById('nav'));
-	ReactDOM.render(React.createElement(FooterComponent, null), document.getElementById('foote'));
+	ReactDOM.render(React.createElement(NavComponent, { router: r }), document.getElementById('nav'));
 
 	var r = new Router();
 	Backbone.history.start();
 });
 
-},{"./components/AboutComponent":162,"./components/ContactComponent":163,"./components/FooterComponent":164,"./components/GalleryComponent":165,"./components/HomeComponent":166,"./components/MapComponent":167,"./components/NavComponent":168,"backbone":1,"jquery":4,"react":161,"react-dom":5}]},{},[169])
+},{"./components/AboutComponent":162,"./components/ContactComponent":163,"./components/FooterComponent":164,"./components/GalleryComponent":165,"./components/HomeComponent":166,"./components/MapComponent":167,"./components/NavComponent":168,"./components/RecieveMailComponent":169,"backbone":1,"jquery":4,"react":161,"react-dom":5}],171:[function(require,module,exports){
+'use strict';
+
+module.exports = Parse.Object.extend({
+  className: 'Mail'
+});
+
+},{}]},{},[170])
 
 
 //# sourceMappingURL=bundle.js.map

@@ -105,7 +105,7 @@ nav button {
 
 .slideshow {
   padding-top: 1em;
-  width: 60%;
+  width: 95%;
   margin: 0 auto; }
 
 .item img {
@@ -153,6 +153,18 @@ nav button {
     margin-right: 10%;
     float: right; }
 
+.expText {
+  font-size: 1.5em;
+  margin: 1em 10%; }
+
+.incomingMessage {
+  margin: 1em 10%;
+  padding: 1em; }
+  .incomingMessage div {
+    margin: 0.4em; }
+  .incomingMessage .tim {
+    text-decoration: underline; }
+
 footer {
   text-align: center;
   color: white;
@@ -174,7 +186,9 @@ footer {
     float: right; }
   .cForm {
     width: 60%;
-    margin: 1em auto; } }
+    margin: 1em auto; }
+  .slideshow {
+    width: 60%; } }
 
 .box-shadow--2dp {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }

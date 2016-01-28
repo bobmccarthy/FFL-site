@@ -135,7 +135,7 @@ nav{
 }
 .slideshow{
 	padding-top: 1em;
-	width: 60%;
+	width: 95%;
 	margin: 0 auto;
 }
 .item{
@@ -197,8 +197,22 @@ nav{
 	}
 }
 
+// =================================Receive===================================
 
-
+.expText{
+	font-size: 1.5em;
+	margin: 1em 10%;
+}
+.incomingMessage{
+	margin: 1em 10%;
+	padding: 1em;
+	div{
+		margin: 0.4em;
+	}
+	.tim{
+		text-decoration: underline;
+	}
+}
 
 
 
@@ -236,7 +250,9 @@ footer{
 	.cForm{
 	width: 60%;
 	margin: 1em auto;
-	
+	}
+	.slideshow{
+	width: 60%;
 }
 
 }

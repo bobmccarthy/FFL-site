@@ -41,12 +41,12 @@ module.exports = React.createClass({
 							<div>	
 								<div className="ican col-xs-12 col-sm-4 col-md-2">I Dream</div>
 								<img className="saywhat col-xs-1" src="images/saywhat.jpg"/>
-								<div className="textblock col-xs-11 col-sm-7 col-md-3">Friendships For Life is building opportunities with our special populations to enrich and bless their communities by sharing their uniquely individual, God given purpose through friendships and service.</div>
+								<div className="textblock col-xs-11 col-sm-7 col-md-3">Our work will include projects such as helping run the Springs Food Pantry, making and marketing our arts and crafts, and expanding our greeting card business.</div>
 							</div>
 						
 							<div>
 								<div className="ican iserve col-xs-12 col-sm-4 col-md-2">I Can</div>
-								<div className="textblock col-xs-11 col-sm-7 col-md-3">The Dripping Springs Community Foundation invited Friendships for Life to participate in the "Givin' Where I'm Livin" campaign in 2014. All donations made to Friendships for Life were matched. For more info click the cowboy hat!</div>
+								<div className="textblock col-xs-11 col-sm-7 col-md-3">Our main goal is to help our members of FFL find a path where they are able to serve their community. Each path is different, and each path requires educating not only the person themselves, but also those they come in contact with in order to help them achieve their goals.</div>
 								<img className="saywhat-right col-xs-1" src="images/saywhat-right.jpg"/>
 							</div>
 						</div>
