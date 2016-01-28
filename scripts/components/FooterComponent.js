@@ -23,7 +23,7 @@ module.exports = React.createClass({
 	signIn: function(){
 		var pas = window.prompt('password?');
 		if (pas=='1234'){
-			this.props.router.navigate('#receive', {trigger:true});
+			this.props.router.navigate('#dashboard', {trigger:true});
 		}
 		else{
 			this.props.router.navigate('#contact', {trigger:true});

@@ -153,6 +153,17 @@ nav button {
     margin-right: 10%;
     float: right; }
 
+.dash {
+  text-align: center;
+  height: 30em; }
+  .dash button {
+    background-color: #3879D9;
+    color: white;
+    font-size: 1.5em;
+    margin: 1em;
+    padding: 1em;
+    border: none; }
+
 .expText {
   font-size: 1.5em;
   margin: 1em 10%; }
@@ -164,6 +175,9 @@ nav button {
     margin: 0.4em; }
   .incomingMessage .tim {
     text-decoration: underline; }
+
+.back {
+  float: right; }
 
 footer {
   text-align: center;

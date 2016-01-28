@@ -32424,6 +32424,61 @@ module.exports = React.createClass({
 'use strict';
 
 var React = require('react');
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	render: function render() {
+
+		return React.createElement(
+			'div',
+			null,
+			React.createElement(
+				'h1',
+				null,
+				'Page Under Construction...'
+			)
+		);
+	}
+
+});
+
+},{"react":161}],164:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	render: function render() {
+
+		return React.createElement(
+			'div',
+			null,
+			React.createElement(
+				'h1',
+				null,
+				'Page Under Construction...'
+			),
+			React.createElement(
+				'a',
+				{ className: 'back', href: '#dashboard' },
+				React.createElement(
+					'button',
+					null,
+					'Back To Dashboard'
+				)
+			)
+		);
+	}
+
+});
+
+},{"react":161}],165:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
 var MailModel = require('../models/MailModel');
 
 module.exports = React.createClass({
@@ -32470,7 +32525,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/MailModel":171,"react":161}],164:[function(require,module,exports){
+},{"../models/MailModel":174,"react":161}],166:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32523,7 +32578,7 @@ module.exports = React.createClass({
 	signIn: function signIn() {
 		var pas = window.prompt('password?');
 		if (pas == '1234') {
-			this.props.router.navigate('#receive', { trigger: true });
+			this.props.router.navigate('#dashboard', { trigger: true });
 		} else {
 			this.props.router.navigate('#contact', { trigger: true });
 		}
@@ -32531,7 +32586,7 @@ module.exports = React.createClass({
 
 });
 
-},{"react":161}],165:[function(require,module,exports){
+},{"react":161}],167:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32670,7 +32725,7 @@ module.exports = React.createClass({
 
 });
 
-},{"react":161}],166:[function(require,module,exports){
+},{"react":161}],168:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32813,7 +32868,7 @@ module.exports = React.createClass({
 
 });
 
-},{"react":161}],167:[function(require,module,exports){
+},{"react":161}],169:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32864,7 +32919,7 @@ module.exports = React.createClass({
 
 });
 
-},{"react":161}],168:[function(require,module,exports){
+},{"react":161}],170:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32963,8 +33018,8 @@ module.exports = React.createClass({
 								{ onClick: this.collapseIt },
 								React.createElement(
 									'a',
-									{ href: '#calendar' },
-									'Calendar'
+									{ href: '#blog' },
+									'Blog'
 								)
 							),
 							React.createElement(
@@ -33012,7 +33067,7 @@ module.exports = React.createClass({
 
 });
 
-},{"react":161}],169:[function(require,module,exports){
+},{"react":161}],171:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -33080,13 +33135,63 @@ module.exports = React.createClass({
 				{ className: 'expText' },
 				'Read Messages From People:'
 			),
-			messageOutput
+			messageOutput,
+			React.createElement(
+				'a',
+				{ className: 'back', href: '#dashboard' },
+				React.createElement(
+					'button',
+					null,
+					'Back To Dashboard'
+				)
+			)
 		);
 	}
 
 });
 
-},{"../models/MailModel":171,"react":161}],170:[function(require,module,exports){
+},{"../models/MailModel":174,"react":161}],172:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	render: function render() {
+
+		return React.createElement(
+			'div',
+			{ className: 'dash' },
+			React.createElement(
+				'h2',
+				null,
+				'Hello FFL Staff!'
+			),
+			React.createElement(
+				'a',
+				{ href: '#receive' },
+				React.createElement(
+					'button',
+					null,
+					'Get Messages'
+				)
+			),
+			React.createElement(
+				'a',
+				{ href: '#blogCreate' },
+				React.createElement(
+					'button',
+					null,
+					'Post to Blog'
+				)
+			)
+		);
+	}
+
+});
+
+},{"react":161}],173:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -33103,7 +33208,10 @@ var GalleryComponent = require('./components/GalleryComponent');
 var MapComponent = require('./components/MapComponent');
 var FooterComponent = require('./components/FooterComponent');
 var ContactComponent = require('./components/ContactComponent');
+var UserDashboardComponent = require('./components/UserDashboardComponent');
 var RecieveMailComponent = require('./components/RecieveMailComponent');
+var BlogCreateComponent = require('./components/BlogCreateComponent');
+var BlogComponent = require('./components/BlogComponent');
 
 // $(document).ready(function(){
 // 	$('.collapse').collapse();
@@ -33118,7 +33226,10 @@ $(document).on('ready', function () {
 			'gallery': 'gallery',
 			'map': 'map',
 			'contact': 'contact',
-			'receive': 'receive'
+			'blog': 'blog',
+			'dashboard': 'dashboard',
+			'receive': 'receive',
+			'blogCreate': 'blogCreate'
 		},
 
 		home: function home() {
@@ -33141,8 +33252,20 @@ $(document).on('ready', function () {
 			ReactDOM.render(React.createElement(ContactComponent, { router: r }), document.getElementById('main'));
 			ReactDOM.render(React.createElement(FooterComponent, { router: r }), document.getElementById('foote'));
 		},
+		blog: function blog() {
+			ReactDOM.render(React.createElement(BlogComponent, null), document.getElementById('main'));
+			ReactDOM.render(React.createElement(FooterComponent, { router: r }), document.getElementById('foote'));
+		},
+		dashboard: function dashboard() {
+			ReactDOM.render(React.createElement(UserDashboardComponent, { router: r }), document.getElementById('main'));
+			ReactDOM.render(React.createElement(FooterComponent, { router: r }), document.getElementById('foote'));
+		},
 		receive: function receive() {
 			ReactDOM.render(React.createElement(RecieveMailComponent, null), document.getElementById('main'));
+			ReactDOM.render(React.createElement(FooterComponent, { router: r }), document.getElementById('foote'));
+		},
+		blogCreate: function blogCreate() {
+			ReactDOM.render(React.createElement(BlogCreateComponent, null), document.getElementById('main'));
 			ReactDOM.render(React.createElement(FooterComponent, { router: r }), document.getElementById('foote'));
 		}
 	});
@@ -33153,14 +33276,14 @@ $(document).on('ready', function () {
 	Backbone.history.start();
 });
 
-},{"./components/AboutComponent":162,"./components/ContactComponent":163,"./components/FooterComponent":164,"./components/GalleryComponent":165,"./components/HomeComponent":166,"./components/MapComponent":167,"./components/NavComponent":168,"./components/RecieveMailComponent":169,"backbone":1,"jquery":4,"react":161,"react-dom":5}],171:[function(require,module,exports){
+},{"./components/AboutComponent":162,"./components/BlogComponent":163,"./components/BlogCreateComponent":164,"./components/ContactComponent":165,"./components/FooterComponent":166,"./components/GalleryComponent":167,"./components/HomeComponent":168,"./components/MapComponent":169,"./components/NavComponent":170,"./components/RecieveMailComponent":171,"./components/UserDashboardComponent":172,"backbone":1,"jquery":4,"react":161,"react-dom":5}],174:[function(require,module,exports){
 'use strict';
 
 module.exports = Parse.Object.extend({
   className: 'Mail'
 });
 
-},{}]},{},[170])
+},{}]},{},[173])
 
 
 //# sourceMappingURL=bundle.js.map

@@ -37,6 +37,7 @@ module.exports = React.createClass({
 			<div>
 				<div className="expText">Read Messages From People:</div>
 				{messageOutput}
+				<a className="back" href="#dashboard"><button>Back To Dashboard</button></a>
 			</div>
 			)
 	}

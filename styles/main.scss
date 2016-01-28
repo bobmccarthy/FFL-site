@@ -197,6 +197,23 @@ nav{
 	}
 }
 
+
+// ========================================Dashboard===============================
+
+
+.dash{
+	text-align: center;
+	height: 30em;
+	button{
+		background-color: #3879D9;
+		color: white;
+		font-size: 1.5em;
+		margin: 1em;
+		padding: 1em;
+		border: none;
+	}
+}
+
 // =================================Receive===================================
 
 .expText{
@@ -213,6 +230,9 @@ nav{
 		text-decoration: underline;
 	}
 }
+.back{
+	float: right;
+}
 
 
 
@@ -221,6 +241,7 @@ nav{
 
 
 footer{
+	
 	text-align: center;
 	color: white;
 	background-color: #3D3D3A;

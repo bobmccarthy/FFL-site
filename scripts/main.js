@@ -16,7 +16,10 @@ var GalleryComponent = require('./components/GalleryComponent');
 var MapComponent = require('./components/MapComponent');
 var FooterComponent = require('./components/FooterComponent');
 var ContactComponent = require('./components/ContactComponent');
+var UserDashboardComponent = require('./components/UserDashboardComponent');
 var RecieveMailComponent = require('./components/RecieveMailComponent');
+var BlogCreateComponent = require('./components/BlogCreateComponent');
+var BlogComponent = require('./components/BlogComponent');
 
 // $(document).ready(function(){
 // 	$('.collapse').collapse();
@@ -31,7 +34,10 @@ $(document).on('ready', function(){
 			'gallery': 'gallery',
 			'map': 'map',
 			'contact': 'contact',
-			'receive': 'receive'
+			'blog': 'blog',
+			'dashboard': 'dashboard',
+			'receive': 'receive',
+			'blogCreate': 'blogCreate'
 		},
 
 		home: function(){
@@ -39,15 +45,12 @@ $(document).on('ready', function(){
 			document.getElementById('main'));
 			ReactDOM.render(<FooterComponent router={r} />,
 			document.getElementById('foote'));
-
-			
 		},
 		about: function(){
 			ReactDOM.render(<AboutComponent />,
 			document.getElementById('main'));
 			ReactDOM.render(<FooterComponent router={r} />,
 			document.getElementById('foote'));
-			
 		},
 		gallery: function(){
 			ReactDOM.render(<GalleryComponent />,
@@ -70,17 +73,35 @@ $(document).on('ready', function(){
 			document.getElementById('foote'));
 			
 		},
+		blog: function(){
+			ReactDOM.render(<BlogComponent />,
+			document.getElementById('main'));
+			ReactDOM.render(<FooterComponent router={r} />,
+			document.getElementById('foote'));
+		},
+		dashboard: function(){
+			ReactDOM.render(<UserDashboardComponent router={r}/>,
+			document.getElementById('main'));
+			ReactDOM.render(<FooterComponent router={r} />,
+			document.getElementById('foote'));
+		},
 		receive: function(){
 			ReactDOM.render(<RecieveMailComponent />,
 			document.getElementById('main'));
 			ReactDOM.render(<FooterComponent router={r} />,
 			document.getElementById('foote'));
-			
+		},
+		blogCreate: function(){
+			ReactDOM.render(<BlogCreateComponent />,
+			document.getElementById('main'));
+			ReactDOM.render(<FooterComponent router={r} />,
+			document.getElementById('foote'));
 		}
 	});
 
 	ReactDOM.render(<NavComponent router={r} />,
 		document.getElementById('nav'));
+		
 	
 
 	var r = new Router();
