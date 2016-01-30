@@ -16,7 +16,7 @@ module.exports = React.createClass({
 	componentWillMount: function(){
 		MailQuery.find().then((list)=> {
 			console.log(list);
-			this.setState({messages: list})
+			this.setState({messages: list.reverse()})
 			}
 		);
 	},

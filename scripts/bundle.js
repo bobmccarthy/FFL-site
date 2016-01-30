@@ -33088,7 +33088,7 @@ module.exports = React.createClass({
 
 		MailQuery.find().then(function (list) {
 			console.log(list);
-			_this.setState({ messages: list });
+			_this.setState({ messages: list.reverse() });
 		});
 	},
 
