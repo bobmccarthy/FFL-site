@@ -76,13 +76,13 @@ nav button {
   font-size: 1.2em; }
 
 .fut {
-  background: linear-gradient(to bottom, white, #3D3D3A);
+  background: linear-gradient(to bottom, white, #E6DB74);
   padding-bottom: 3em;
   padding-top: 1em; }
 
 .future {
   text-align: center;
-  font-family: futura;
+  font-family: Lucida Sans;
   font-size: 2.5em; }
 
 .textBlo {
@@ -134,6 +134,11 @@ nav button {
   font-size: 1.3em;
   margin-left: 0.5em; }
 
+.blogPage {
+  height: 30em; }
+  .blogPage button {
+    margin-right: 2em; }
+
 .formTag {
   text-align: center;
   font-size: 1.5em;
@@ -175,6 +180,9 @@ nav button {
     margin: 0.4em; }
   .incomingMessage .tim {
     text-decoration: underline; }
+
+.backC {
+  padding: 2em; }
 
 .back {
   float: right; }

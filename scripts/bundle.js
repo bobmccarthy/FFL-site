@@ -32432,7 +32432,7 @@ module.exports = React.createClass({
 
 		return React.createElement(
 			'div',
-			null,
+			{ className: 'blogPage' },
 			React.createElement(
 				'h1',
 				null,
@@ -32455,7 +32455,7 @@ module.exports = React.createClass({
 
 		return React.createElement(
 			'div',
-			null,
+			{ className: 'blogPage' },
 			React.createElement(
 				'h1',
 				null,
@@ -33137,12 +33137,16 @@ module.exports = React.createClass({
 			),
 			messageOutput,
 			React.createElement(
-				'a',
-				{ className: 'back', href: '#dashboard' },
+				'div',
+				{ className: 'backC' },
 				React.createElement(
-					'button',
-					null,
-					'Back To Dashboard'
+					'a',
+					{ className: 'back', href: '#dashboard' },
+					React.createElement(
+						'button',
+						null,
+						'Back To Dashboard'
+					)
 				)
 			)
 		);

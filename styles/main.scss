@@ -92,13 +92,13 @@ nav{
 }
 
 .fut{
-	background: linear-gradient(to bottom, white, #3D3D3A);
+	background: linear-gradient(to bottom, white, #E6DB74);
 	padding-bottom: 3em;
 	padding-top: 1em;
 }
 .future{
 	text-align: center;
-	font-family: futura;
+	font-family: Lucida Sans;
 	font-size: 2.5em;
 
 }
@@ -173,6 +173,15 @@ nav{
 	margin-left: 0.5em;
 }
 
+// ==================================BLOG==========================
+
+.blogPage{
+	height: 30em;
+	button{
+		margin-right: 2em;
+	}
+}
+
 // ===============================Contact===================
 
 .formTag{
@@ -230,8 +239,14 @@ nav{
 		text-decoration: underline;
 	}
 }
+.backC{
+	
+	padding: 2em;
+}
 .back{
+	
 	float: right;
+
 }
 
 
