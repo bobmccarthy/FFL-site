@@ -33217,10 +33217,6 @@ var RecieveMailComponent = require('./components/RecieveMailComponent');
 var BlogCreateComponent = require('./components/BlogCreateComponent');
 var BlogComponent = require('./components/BlogComponent');
 
-// $(document).ready(function(){
-// 	$('.collapse').collapse();
-// })
-
 $(document).on('ready', function () {
 
 	var Router = Backbone.Router.extend({

@@ -48,20 +48,14 @@ nav button {
 .ican {
   font-size: 3em;
   color: red;
-  padding-top: 1em;
+  padding-top: 0.5em;
   text-align: center;
   font-family: cursive; }
 
 .textblock {
   text-align: center;
   font-family: futura;
-  padding-top: 2em;
-  height: 12em; }
-
-.saywhat {
-  height: 12em; }
-
-.saywhat-right {
+  padding-top: 0.5em;
   height: 12em; }
 
 .van {
@@ -210,7 +204,15 @@ footer {
     width: 60%;
     margin: 1em auto; }
   .slideshow {
-    width: 60%; } }
+    width: 60%; }
+  .saywhat {
+    height: 12em; }
+  .saywhat-right {
+    height: 12em; }
+  .textblock {
+    padding-top: 2em; }
+  .ican {
+    padding-top: 1.2; } }
 
 .box-shadow--2dp {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }

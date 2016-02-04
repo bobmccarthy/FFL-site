@@ -59,7 +59,7 @@ nav{
 .ican{
 	font-size: 3em;
 	color: red;
-	padding-top: 1em;
+	padding-top: 0.5em;
 	text-align: center;
 	font-family: cursive;
 }
@@ -67,16 +67,17 @@ nav{
 .textblock{
 	text-align: center;
 	font-family: futura;
-	padding-top: 2em;
+	padding-top: 0.5em;
 	height:12em;
-}
-.saywhat{
-	height:12em;
-}
 
-.saywhat-right{
-	height:12em;
 }
+// .saywhat{
+// 	height:12em;
+// }
+
+// .saywhat-right{
+// 	height:12em;
+// }
 
 .van{
 	padding: 2em 2em;
@@ -288,8 +289,21 @@ footer{
 	margin: 1em auto;
 	}
 	.slideshow{
-	width: 60%;
-}
+		width: 60%;
+	}
+	.saywhat{
+		height:12em;
+	}
+
+	.saywhat-right{
+		height:12em;
+	}
+	.textblock{
+		padding-top: 2em;
+	}
+	.ican{
+		padding-top: 1.2;
+	}
 
 }
 
