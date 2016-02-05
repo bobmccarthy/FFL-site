@@ -241,10 +241,33 @@ nav{
 		margin-bottom: 2em;
 	}
 }
-.backTo{
-	float: right;
-	margin: 0;
+.or{
+	overflow: hidden;
+
+	.or1{
+		margin-right: 19%;
+		float: right;
+		margin-bottom: 1em;
+	}
+	
 }
+.backT{
+
+	overflow: hidden;
+	.backTo{
+		float: right;
+		margin-right: 10%;
+		min-width: 20%;
+		border-radius: 2em;
+		background-color: #F92772;
+		color: white;
+		border: none;
+		padding: 0.5em;
+		margin-bottom: 2em;
+
+	}
+}
+	
 .eachEntry{
 	margin: 2% 10%;
 	padding: 2%;
@@ -252,7 +275,7 @@ nav{
 		font-size: 2em;
 	}
 	.mesTag{
-		font-size: 1.25em;
+		// font-size: 1.25em;
 	}
 	img{
 		width: 100%;
@@ -279,8 +302,16 @@ nav{
 		margin: 1em auto;
 	}
 	button{
-		margin-right: 10%;
+		// margin-right: 10%;
 		float: right;
+		min-width: 20%;
+		border-radius: 2em;
+		background-color: #3879D9;
+		color: white;
+		border: none;
+		padding: 0.5em;
+		margin-bottom: 2em;
+
 	}
 }
 
@@ -413,8 +444,21 @@ footer{
 			margin-right: 20%;
 		}
 	}
+	.or{
+		.or1{
+			margin-right: 28%;
+		}
+	}
+	.backT{
+		.backTo{
+			margin-right: 20%;
+		}
+	}
 	.eachEntry{
 	margin: 2% 20%;
+		.mesTag{
+			font-size: 1.25em;
+		}
 }
 
 }

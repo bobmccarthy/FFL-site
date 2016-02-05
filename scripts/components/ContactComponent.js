@@ -15,7 +15,7 @@ module.exports = React.createClass({
 					<input ref="emailM" placeholder="Your Email"/>
 					<input ref="subject" placeholder="Type Subject Here"/>
 					<textarea ref="message" placeholder="Message"/>
-					<button>Submit</button>
+					<button className="sub box-shadow--8dp">Submit</button>
 				</form>
 			</div>
 			)

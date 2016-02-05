@@ -174,17 +174,31 @@ nav button {
     padding: 0.5em;
     margin-bottom: 2em; }
 
-.backTo {
-  float: right;
-  margin: 0; }
+.or {
+  overflow: hidden; }
+  .or .or1 {
+    margin-right: 19%;
+    float: right;
+    margin-bottom: 1em; }
+
+.backT {
+  overflow: hidden; }
+  .backT .backTo {
+    float: right;
+    margin-right: 10%;
+    min-width: 20%;
+    border-radius: 2em;
+    background-color: #F92772;
+    color: white;
+    border: none;
+    padding: 0.5em;
+    margin-bottom: 2em; }
 
 .eachEntry {
   margin: 2% 10%;
   padding: 2%; }
   .eachEntry .titleTag {
     font-size: 2em; }
-  .eachEntry .mesTag {
-    font-size: 1.25em; }
   .eachEntry img {
     width: 100%;
     border: 1px solid #3879D9; }
@@ -205,8 +219,14 @@ nav button {
     display: block;
     margin: 1em auto; }
   .cForm button {
-    margin-right: 10%;
-    float: right; }
+    float: right;
+    min-width: 20%;
+    border-radius: 2em;
+    background-color: #3879D9;
+    color: white;
+    border: none;
+    padding: 0.5em;
+    margin-bottom: 2em; }
 
 .dash {
   text-align: center;
@@ -290,8 +310,14 @@ footer {
     width: 60%; }
   .blogPage .saveBlog {
     margin-right: 20%; }
+  .or .or1 {
+    margin-right: 28%; }
+  .backT .backTo {
+    margin-right: 20%; }
   .eachEntry {
-    margin: 2% 20%; } }
+    margin: 2% 20%; }
+    .eachEntry .mesTag {
+      font-size: 1.25em; } }
 
 .box-shadow--2dp {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }

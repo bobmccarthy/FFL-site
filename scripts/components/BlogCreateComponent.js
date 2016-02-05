@@ -29,12 +29,17 @@ var picUrl = '';
 						
 						<button className="saveBlog box-shadow--4dp" onClick={this.run}>Save Post</button>
 					</div>
-					<a href="#dashboard"><button className="backTo">Back To Dashboard</button></a>
+					<div className="or">
+						<div className="or1">-or-</div>
+					</div>
+					<div className="backT">
+						<a href="#dashboard"><button className="backTo">Back To Dashboard</button></a>
+					</div>
 				</div>
 				)
 		},
 		changeroo: function(){
-			console.log('yay');
+			
 			filepicker.pick({
 		        mimetype: 'image/*', 
 		        maxSize: 1024 * 1024 * 5, 

@@ -32521,18 +32521,31 @@ module.exports = React.createClass({
 				)
 			),
 			React.createElement(
-				'a',
-				{ href: '#dashboard' },
+				'div',
+				{ className: 'or' },
 				React.createElement(
-					'button',
-					{ className: 'backTo' },
-					'Back To Dashboard'
+					'div',
+					{ className: 'or1' },
+					'-or-'
+				)
+			),
+			React.createElement(
+				'div',
+				{ className: 'backT' },
+				React.createElement(
+					'a',
+					{ href: '#dashboard' },
+					React.createElement(
+						'button',
+						{ className: 'backTo' },
+						'Back To Dashboard'
+					)
 				)
 			)
 		);
 	},
 	changeroo: function changeroo() {
-		console.log('yay');
+
 		filepicker.pick({
 			mimetype: 'image/*',
 			maxSize: 1024 * 1024 * 5,
@@ -32602,7 +32615,7 @@ module.exports = React.createClass({
 				React.createElement('textarea', { ref: 'message', placeholder: 'Message' }),
 				React.createElement(
 					'button',
-					null,
+					{ className: 'sub box-shadow--8dp' },
 					'Submit'
 				)
 			)
@@ -33239,13 +33252,13 @@ module.exports = React.createClass({
 			messageOutput,
 			React.createElement(
 				'div',
-				{ className: 'backC' },
+				{ className: 'backT' },
 				React.createElement(
 					'a',
-					{ className: 'back', href: '#dashboard' },
+					{ href: '#dashboard' },
 					React.createElement(
 						'button',
-						null,
+						{ className: 'backTo' },
 						'Back To Dashboard'
 					)
 				)
