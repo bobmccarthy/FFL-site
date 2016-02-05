@@ -89,7 +89,7 @@ $(document).on('ready', function(){
 			document.getElementById('foote'));
 		},
 		blogCreate: function(){
-			ReactDOM.render(<BlogCreateComponent />,
+			ReactDOM.render(<BlogCreateComponent router={r} />,
 			document.getElementById('main'));
 			ReactDOM.render(<FooterComponent router={r} />,
 			document.getElementById('foote'));

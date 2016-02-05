@@ -32447,35 +32447,66 @@ module.exports = React.createClass({
 'use strict';
 
 var React = require('react');
+var BlogModel = require('../models/BlogModel');
+var text = '<------ Upload Image Here';
 
 module.exports = React.createClass({
 	displayName: 'exports',
 
 	render: function render() {
-
 		return React.createElement(
 			'div',
-			{ className: 'blogPage' },
+			null,
 			React.createElement(
-				'h1',
-				null,
-				'Page Under Construction...'
+				'div',
+				{ className: 'blogPage' },
+				React.createElement('input', { className: 'xc', type: 'text', ref: 'Title', placeholder: 'Title' }),
+				React.createElement('textarea', { className: 'xc', ref: 'message', placeholder: 'Type About it Here!' }),
+				React.createElement('input', { ref: 'fileP', type: 'filepicker', 'data-fp-apikey': 'ArHb48J6aQ8aoKPymDYIzz', 'data-fp-mimetypes': '*/*', 'data-fp-container': 'modal', onchange: 'alert(event.fpfile.url)', onInput: this.changeroo }),
+				React.createElement(
+					'div',
+					{ className: 'errorMes' },
+					text
+				),
+				React.createElement(
+					'button',
+					{ className: 'saveBlog', onClick: this.run },
+					'Save Post'
+				)
 			),
 			React.createElement(
 				'a',
-				{ className: 'back', href: '#dashboard' },
+				{ href: '#dashboard' },
 				React.createElement(
 					'button',
-					null,
+					{ className: 'backTo' },
 					'Back To Dashboard'
 				)
 			)
 		);
+	},
+	changeroo: function changeroo() {
+		text = 'Upload Complete!';
+		console.log('finally!');
+	},
+	run: function run() {
+		var _this = this;
+
+		var blogAdd = new BlogModel();
+		blogAdd.set('Title', this.refs.Title.value);
+		blogAdd.set('url', this.refs.fileP.value);
+		blogAdd.set('Words', this.refs.message.value);
+		blogAdd.save({
+			success: function success() {
+				console.log('saved file to parse');
+				_this.props.router.navigate('#dashboard', { trigger: true });
+			}
+		});
 	}
 
 });
 
-},{"react":161}],165:[function(require,module,exports){
+},{"../models/BlogModel":174,"react":161}],165:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32525,7 +32556,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/MailModel":174,"react":161}],166:[function(require,module,exports){
+},{"../models/MailModel":175,"react":161}],166:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -33154,7 +33185,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/MailModel":174,"react":161}],172:[function(require,module,exports){
+},{"../models/MailModel":175,"react":161}],172:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -33265,7 +33296,7 @@ $(document).on('ready', function () {
 			ReactDOM.render(React.createElement(FooterComponent, { router: r }), document.getElementById('foote'));
 		},
 		blogCreate: function blogCreate() {
-			ReactDOM.render(React.createElement(BlogCreateComponent, null), document.getElementById('main'));
+			ReactDOM.render(React.createElement(BlogCreateComponent, { router: r }), document.getElementById('main'));
 			ReactDOM.render(React.createElement(FooterComponent, { router: r }), document.getElementById('foote'));
 		}
 	});
@@ -33277,6 +33308,13 @@ $(document).on('ready', function () {
 });
 
 },{"./components/AboutComponent":162,"./components/BlogComponent":163,"./components/BlogCreateComponent":164,"./components/ContactComponent":165,"./components/FooterComponent":166,"./components/GalleryComponent":167,"./components/HomeComponent":168,"./components/MapComponent":169,"./components/NavComponent":170,"./components/RecieveMailComponent":171,"./components/UserDashboardComponent":172,"backbone":1,"jquery":4,"react":161,"react-dom":5}],174:[function(require,module,exports){
+'use strict';
+
+module.exports = Parse.Object.extend({
+  className: 'Blog'
+});
+
+},{}],175:[function(require,module,exports){
 'use strict';
 
 module.exports = Parse.Object.extend({

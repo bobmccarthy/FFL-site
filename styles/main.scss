@@ -182,10 +182,42 @@ nav{
 // ==================================BLOG==========================
 
 .blogPage{
+	overflow: hidden;
+	padding-top: 1.5em;
 	height: 30em;
-	button{
-		margin-right: 2em;
+	.errorMes{
+		color: red;
+		float: left;
+		padding: 0.5em;
 	}
+	.xc{
+		display: block;
+		margin: 1em auto;
+		font-size: 1.5em;
+		width: 80%;
+	}
+	button{
+		min-width: 20%;
+		margin-left: 10%;
+		display: inline;
+		float: left;
+		
+	}
+	.saveBlog{
+		display: inline;
+		float: right;
+		margin-right: 10%;
+		min-width: 20%;
+		border-radius: 2em;
+		background-color: #3879D9;
+		color: white;
+		border: none;
+		padding: 0.5em;
+	}
+}
+.backTo{
+	float: right;
+	margin: 0;
 }
 
 // ===============================Contact===================
@@ -262,7 +294,6 @@ nav{
 
 
 footer{
-	
 	text-align: center;
 	color: white;
 	background-color: #3D3D3A;

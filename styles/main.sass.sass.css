@@ -131,9 +131,37 @@ nav button {
   margin-left: 0.5em; }
 
 .blogPage {
+  overflow: hidden;
+  padding-top: 1.5em;
   height: 30em; }
+  .blogPage .errorMes {
+    color: red;
+    float: left;
+    padding: 0.5em; }
+  .blogPage .xc {
+    display: block;
+    margin: 1em auto;
+    font-size: 1.5em;
+    width: 80%; }
   .blogPage button {
-    margin-right: 2em; }
+    min-width: 20%;
+    margin-left: 10%;
+    display: inline;
+    float: left; }
+  .blogPage .saveBlog {
+    display: inline;
+    float: right;
+    margin-right: 10%;
+    min-width: 20%;
+    border-radius: 2em;
+    background-color: #3879D9;
+    color: white;
+    border: none;
+    padding: 0.5em; }
+
+.backTo {
+  float: right;
+  margin: 0; }
 
 .formTag {
   text-align: center;
