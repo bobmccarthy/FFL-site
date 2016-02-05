@@ -1,36 +1,69 @@
 'use strict';
+filepicker.setKey('ArHb48J6aQ8aoKPymDYIzz');
 
 var React = require('react');
 var BlogModel = require('../models/BlogModel');
-var text = '<------ Upload Image Here';
+
+var picUrl = '';
 
 
 
 	module.exports = React.createClass({
-		
+		getInitialState: function(){
+			return {
+				pic: (<button id="goAway" className="picky box-shadow--4dp" ref="fileP" onClick={this.changeroo}>Upload Pic</button>)
+			}
+		},
 
 		render: function() {
 			return(
 				<div>
 					<div className="blogPage">
 						<input className="xc" type="text" ref="Title" placeholder="Title"/>
+						<div id="pi2">
+						<div id="pi">
+							{this.state.pic}
+						</div>
+						</div>
 						<textarea className="xc" ref="message" placeholder="Type About it Here!"/>
-						<input ref="fileP" type="filepicker" data-fp-apikey="ArHb48J6aQ8aoKPymDYIzz" data-fp-mimetypes="*/*" data-fp-container="modal" onchange="alert(event.fpfile.url)" onInput={this.changeroo}/>
-						<div className="errorMes">{text}</div>
-						<button className="saveBlog" onClick={this.run}>Save Post</button>
+						
+						<button className="saveBlog box-shadow--4dp" onClick={this.run}>Save Post</button>
 					</div>
 					<a href="#dashboard"><button className="backTo">Back To Dashboard</button></a>
 				</div>
 				)
 		},
 		changeroo: function(){
-			text = 'Upload Complete!';
-			console.log('finally!');
+			console.log('yay');
+			filepicker.pick({
+		        mimetype: 'image/*', 
+		        maxSize: 1024 * 1024 * 5, 
+		        imageMax: [1500, 1500], 
+		        cropRatio: 16/9, 
+		        services: ['*'] 
+		    }, 
+		    	function(blob) {
+
+		        
+			        var filename = blob.filename;
+
+			        picUrl = blob.url;
+			        console.log(typeof picUrl, picUrl);
+			        var id = blob.id;
+			        var isWriteable = blob.isWriteable;
+			        var mimetype = blob.mimetype;
+			        var size = blob.size;
+			        document.getElementById('pi').style.backgroundImage='url('+picUrl+')';
+			        document.getElementById('goAway').style.display='none';
+		    });
+		    
+
+					
 		},
 		run: function(){
 		    var blogAdd= new BlogModel();
 			blogAdd.set('Title', this.refs.Title.value);
-			blogAdd.set('url', this.refs.fileP.value);
+			blogAdd.set('url', picUrl);
 			blogAdd.set('Words', this.refs.message.value);
 			blogAdd.save({
 				success: ()=>{
@@ -47,3 +80,10 @@ var text = '<------ Upload Image Here';
 		
 
 	});
+
+
+/* Images only */
+/* 5mb */
+/* 1500x1500px */
+/* Perfect squares */
+/* From anywhere */

@@ -131,23 +131,37 @@ nav button {
   margin-left: 0.5em; }
 
 .blogPage {
+  min-height: 30em;
   overflow: hidden;
-  padding-top: 1.5em;
-  height: 30em; }
-  .blogPage .errorMes {
-    color: red;
-    float: left;
-    padding: 0.5em; }
+  padding-top: 1.5em; }
   .blogPage .xc {
     display: block;
     margin: 1em auto;
     font-size: 1.5em;
     width: 80%; }
-  .blogPage button {
-    min-width: 20%;
-    margin-left: 10%;
-    display: inline;
-    float: left; }
+  .blogPage #pi2 {
+    margin: 0 10%; }
+  .blogPage #pi {
+    position: relative;
+    height: same-as-width;
+    width: 100%;
+    box-sizing: border-box;
+    padding-bottom: 56.25%;
+    text-align: center;
+    border: 1px solid black;
+    background-image: url("");
+    background-size: 100%; }
+    .blogPage #pi .picky {
+      min-width: 20%;
+      position: absolute;
+      top: 45%;
+      transform: translateY(-50%);
+      transform: translateX(-50%);
+      border-radius: 2em;
+      background-color: #87D6F9;
+      color: white;
+      border: none;
+      padding: 0.5em; }
   .blogPage .saveBlog {
     display: inline;
     float: right;
@@ -157,11 +171,23 @@ nav button {
     background-color: #3879D9;
     color: white;
     border: none;
-    padding: 0.5em; }
+    padding: 0.5em;
+    margin-bottom: 2em; }
 
 .backTo {
   float: right;
   margin: 0; }
+
+.eachEntry {
+  margin: 2% 10%;
+  padding: 2%; }
+  .eachEntry .titleTag {
+    font-size: 2em; }
+  .eachEntry .mesTag {
+    font-size: 1.25em; }
+  .eachEntry img {
+    width: 100%;
+    border: 1px solid #3879D9; }
 
 .formTag {
   text-align: center;
@@ -257,7 +283,15 @@ footer {
     margin-right: 23%;
     width: 34%; }
   .uvan {
-    font-size: 1.2em; } }
+    font-size: 1.2em; }
+  .blogPage #pi2 {
+    margin: 0 20%; }
+  .blogPage .xc {
+    width: 60%; }
+  .blogPage .saveBlog {
+    margin-right: 20%; }
+  .eachEntry {
+    margin: 2% 20%; } }
 
 .box-shadow--2dp {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }

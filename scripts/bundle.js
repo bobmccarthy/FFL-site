@@ -32424,34 +32424,77 @@ module.exports = React.createClass({
 'use strict';
 
 var React = require('react');
+var BlogModel = require('../models/BlogModel');
+var blogQuery = new Parse.Query(BlogModel);
 
 module.exports = React.createClass({
 	displayName: 'exports',
 
-	render: function render() {
+	getInitialState: function getInitialState() {
+		return {
+			posts: []
+		};
+	},
+	componentWillMount: function componentWillMount() {
+		var _this = this;
 
+		blogQuery.find().then(function (list) {
+			_this.setState({ posts: list.reverse() });
+		});
+	},
+	render: function render() {
+		var table = this.state.posts.map(function (entry) {
+			console.log(entry.get('url'));
+			return React.createElement(
+				'div',
+				{ className: 'eachEntry box-shadow--4dp' },
+				React.createElement(
+					'div',
+					{ className: 'titleTag' },
+					entry.get('Title')
+				),
+				React.createElement(
+					'div',
+					null,
+					React.createElement('img', { src: entry.get('url') })
+				),
+				React.createElement(
+					'div',
+					{ className: 'mesTag' },
+					entry.get('Words')
+				)
+			);
+		});
 		return React.createElement(
 			'div',
 			{ className: 'blogPage' },
-			React.createElement(
-				'h1',
-				null,
-				'Page Under Construction...'
-			)
+			table
 		);
 	}
 
 });
 
-},{"react":161}],164:[function(require,module,exports){
+},{"../models/BlogModel":174,"react":161}],164:[function(require,module,exports){
 'use strict';
+filepicker.setKey('ArHb48J6aQ8aoKPymDYIzz');
 
 var React = require('react');
 var BlogModel = require('../models/BlogModel');
-var text = '<------ Upload Image Here';
+
+var picUrl = '';
 
 module.exports = React.createClass({
 	displayName: 'exports',
+
+	getInitialState: function getInitialState() {
+		return {
+			pic: React.createElement(
+				'button',
+				{ id: 'goAway', className: 'picky box-shadow--4dp', ref: 'fileP', onClick: this.changeroo },
+				'Upload Pic'
+			)
+		};
+	},
 
 	render: function render() {
 		return React.createElement(
@@ -32461,16 +32504,19 @@ module.exports = React.createClass({
 				'div',
 				{ className: 'blogPage' },
 				React.createElement('input', { className: 'xc', type: 'text', ref: 'Title', placeholder: 'Title' }),
-				React.createElement('textarea', { className: 'xc', ref: 'message', placeholder: 'Type About it Here!' }),
-				React.createElement('input', { ref: 'fileP', type: 'filepicker', 'data-fp-apikey': 'ArHb48J6aQ8aoKPymDYIzz', 'data-fp-mimetypes': '*/*', 'data-fp-container': 'modal', onchange: 'alert(event.fpfile.url)', onInput: this.changeroo }),
 				React.createElement(
 					'div',
-					{ className: 'errorMes' },
-					text
+					{ id: 'pi2' },
+					React.createElement(
+						'div',
+						{ id: 'pi' },
+						this.state.pic
+					)
 				),
+				React.createElement('textarea', { className: 'xc', ref: 'message', placeholder: 'Type About it Here!' }),
 				React.createElement(
 					'button',
-					{ className: 'saveBlog', onClick: this.run },
+					{ className: 'saveBlog box-shadow--4dp', onClick: this.run },
 					'Save Post'
 				)
 			),
@@ -32486,15 +32532,33 @@ module.exports = React.createClass({
 		);
 	},
 	changeroo: function changeroo() {
-		text = 'Upload Complete!';
-		console.log('finally!');
+		console.log('yay');
+		filepicker.pick({
+			mimetype: 'image/*',
+			maxSize: 1024 * 1024 * 5,
+			imageMax: [1500, 1500],
+			cropRatio: 16 / 9,
+			services: ['*']
+		}, function (blob) {
+
+			var filename = blob.filename;
+
+			picUrl = blob.url;
+			console.log(typeof picUrl, picUrl);
+			var id = blob.id;
+			var isWriteable = blob.isWriteable;
+			var mimetype = blob.mimetype;
+			var size = blob.size;
+			document.getElementById('pi').style.backgroundImage = 'url(' + picUrl + ')';
+			document.getElementById('goAway').style.display = 'none';
+		});
 	},
 	run: function run() {
 		var _this = this;
 
 		var blogAdd = new BlogModel();
 		blogAdd.set('Title', this.refs.Title.value);
-		blogAdd.set('url', this.refs.fileP.value);
+		blogAdd.set('url', picUrl);
 		blogAdd.set('Words', this.refs.message.value);
 		blogAdd.save({
 			success: function success() {
@@ -32505,6 +32569,12 @@ module.exports = React.createClass({
 	}
 
 });
+
+/* Images only */
+/* 5mb */
+/* 1500x1500px */
+/* Perfect squares */
+/* From anywhere */
 
 },{"../models/BlogModel":174,"react":161}],165:[function(require,module,exports){
 'use strict';

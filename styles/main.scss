@@ -182,27 +182,52 @@ nav{
 // ==================================BLOG==========================
 
 .blogPage{
+	min-height: 30em;
 	overflow: hidden;
 	padding-top: 1.5em;
-	height: 30em;
-	.errorMes{
-		color: red;
-		float: left;
-		padding: 0.5em;
-	}
+	// height: 30em;
+	
 	.xc{
 		display: block;
 		margin: 1em auto;
 		font-size: 1.5em;
 		width: 80%;
 	}
-	button{
-		min-width: 20%;
-		margin-left: 10%;
-		display: inline;
-		float: left;
+	#pi2{
+		margin: 0 10%;
 		
 	}
+	#pi{
+
+		position: relative;
+		height: same-as-width;
+		width: 100%;
+		
+		box-sizing: border-box;
+		padding-bottom: 56.25%;
+		text-align: center;
+		border: 1px solid black;
+		background-image: url('');
+		background-size: 100%;
+		.picky{
+			min-width: 20%;
+			
+			position: absolute;
+			top: 45%;
+			transform: translateY(-50%);
+			transform: translateX(-50%);
+
+			
+			border-radius: 2em;
+			background-color: #87D6F9;
+			color: white;
+			border: none;
+			padding: 0.5em;
+
+			
+		}
+	}
+	
 	.saveBlog{
 		display: inline;
 		float: right;
@@ -213,11 +238,26 @@ nav{
 		color: white;
 		border: none;
 		padding: 0.5em;
+		margin-bottom: 2em;
 	}
 }
 .backTo{
 	float: right;
 	margin: 0;
+}
+.eachEntry{
+	margin: 2% 10%;
+	padding: 2%;
+	.titleTag{
+		font-size: 2em;
+	}
+	.mesTag{
+		font-size: 1.25em;
+	}
+	img{
+		width: 100%;
+		border: 1px solid #3879D9;
+	}
 }
 
 // ===============================Contact===================
@@ -317,6 +357,7 @@ footer{
 }*/
 
 @media screen and (min-width: 48em){
+
 	.tagLine{
 		font-size: 1.5em;
 		width: 100%;
@@ -358,6 +399,23 @@ footer{
 	.uvan{
 		font-size: 1.2em;
 	}
+	.blogPage{
+
+
+		#pi2{
+			margin: 0 20%;
+			
+		}
+		.xc{
+			width: 60%;
+		}
+		.saveBlog{
+			margin-right: 20%;
+		}
+	}
+	.eachEntry{
+	margin: 2% 20%;
+}
 
 }
 
