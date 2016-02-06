@@ -26,7 +26,9 @@ var picUrl = '';
 						</div>
 						</div>
 						<textarea className="xc" ref="message" placeholder="Type About it Here!"/>
-						
+						<div className="cBox">
+							<label><input type="checkbox" id="cbox1" ref="checkbox" className="cBox2 box-shadow--4dp" value="makeHome" /> Put on Home Page</label>
+						</div>
 						<button className="saveBlog box-shadow--4dp" onClick={this.run}>Save Post</button>
 					</div>
 					<div className="or">
@@ -66,17 +68,27 @@ var picUrl = '';
 					
 		},
 		run: function(){
-		    var blogAdd= new BlogModel();
-			blogAdd.set('Title', this.refs.Title.value);
-			blogAdd.set('url', picUrl);
-			blogAdd.set('Words', this.refs.message.value);
-			blogAdd.save({
-				success: ()=>{
-					console.log('saved file to parse');
-					this.props.router.navigate('#dashboard', {trigger: true});
-					
+			if (this.refs.Title.value && this.refs.message.value){
+				var blogAdd= new BlogModel();
+				blogAdd.set('Title', this.refs.Title.value);
+				blogAdd.set('url', picUrl);
+				blogAdd.set('Words', this.refs.message.value);
+				if (this.refs.checkbox.checked){
+					blogAdd.set('Home', true);
+				}else{
+					blogAdd.set('Home', false);
 				}
-			});  
+				blogAdd.save({
+					success: ()=>{
+						console.log('saved file to parse');
+						this.props.router.navigate('#dashboard', {trigger: true});
+						
+					}
+				});  
+			}
+
+			
+			    
 		}
 		
 

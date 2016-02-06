@@ -1,12 +1,56 @@
 'use strict';
 
 var React = require('react');
-
-
+var BlogModel = require('../models/BlogModel');
+var blogQuery = new Parse.Query(BlogModel);
+var counter=0;
+var ja = (<div>Not Yet</div>);
 
 module.exports = React.createClass({
+	getInitialState: function(){
+		return{
+			post: []
+		}
+	},
+	componentWillMount: function(){
+		blogQuery.equalTo('Home', true);
+		blogQuery.find().then((products) => {
+			console.log(products);
+			counter=1;
+			this.setState({post: products});
+		});
+	},
 	
 	render: function() {
+		var count=0;
+		if (counter==1){
+
+			ja = this.state.post.reverse().map((product) => {
+					
+					if (count==0){
+						count=count+1;
+						return (
+							<div className="row van">
+								<img className="vanpic col-xs-12 col-md-6" src={product.get('url')}/>
+								<div className="uvan col-xs-12 col-md-6">
+									<div><h2>{product.get('Title')}</h2></div>
+									<div>{product.get('Words')}</div>
+								</div>
+							</div>
+						);
+					}
+					else{
+						return (
+							<div></div>
+						);
+					}
+					
+				
+				
+			})
+
+		}
+		
 		return(
 			<div>
 				<div>
@@ -53,10 +97,7 @@ module.exports = React.createClass({
 					</div>
 				</div>	
 				<div className="container-fluid">
-					<div className="row van">
-						<img className="vanpic col-xs-12 col-md-6" src="images/new-van.jpg"/>
-						<div className="uvan col-xs-12 col-md-6">FFL RECENTLY RECEIVED A GENEROUS DONATION FROM ANOTHER AREA NON-PROFIT - THE FRANKLIN FAMILY RANCH. Larry and Charlotte Franklin have answered a prayer by donating a 15 passenger van to Friendships for Life. With this donation, we can now more than double the size of the program. THANK YOU!</div>
-					</div>
+					{ja}
 				</div>
 				<div className="fut container-fluid">
 					<div className="row">
@@ -64,6 +105,7 @@ module.exports = React.createClass({
 						<div className="team col-xs-12 col-sm-6">Our team is currently using the facilities at Church of the Springs, in Dripping Spring. The plan to expand into our own building on the church grounds is on the horizon! </div>	
 					</div>
 				</div>
+				
 			</div>
 			)
 	}

@@ -32515,6 +32515,16 @@ module.exports = React.createClass({
 				),
 				React.createElement('textarea', { className: 'xc', ref: 'message', placeholder: 'Type About it Here!' }),
 				React.createElement(
+					'div',
+					{ className: 'cBox' },
+					React.createElement(
+						'label',
+						null,
+						React.createElement('input', { type: 'checkbox', id: 'cbox1', ref: 'checkbox', className: 'cBox2 box-shadow--4dp', value: 'makeHome' }),
+						' Put on Home Page'
+					)
+				),
+				React.createElement(
 					'button',
 					{ className: 'saveBlog box-shadow--4dp', onClick: this.run },
 					'Save Post'
@@ -32569,16 +32579,23 @@ module.exports = React.createClass({
 	run: function run() {
 		var _this = this;
 
-		var blogAdd = new BlogModel();
-		blogAdd.set('Title', this.refs.Title.value);
-		blogAdd.set('url', picUrl);
-		blogAdd.set('Words', this.refs.message.value);
-		blogAdd.save({
-			success: function success() {
-				console.log('saved file to parse');
-				_this.props.router.navigate('#dashboard', { trigger: true });
+		if (this.refs.Title.value && this.refs.message.value) {
+			var blogAdd = new BlogModel();
+			blogAdd.set('Title', this.refs.Title.value);
+			blogAdd.set('url', picUrl);
+			blogAdd.set('Words', this.refs.message.value);
+			if (this.refs.checkbox.checked) {
+				blogAdd.set('Home', true);
+			} else {
+				blogAdd.set('Home', false);
 			}
-		});
+			blogAdd.save({
+				success: function success() {
+					console.log('saved file to parse');
+					_this.props.router.navigate('#dashboard', { trigger: true });
+				}
+			});
+		}
 	}
 
 });
@@ -32843,11 +32860,71 @@ module.exports = React.createClass({
 'use strict';
 
 var React = require('react');
+var BlogModel = require('../models/BlogModel');
+var blogQuery = new Parse.Query(BlogModel);
+var counter = 0;
+var ja = React.createElement(
+	'div',
+	null,
+	'Not Yet'
+);
 
 module.exports = React.createClass({
 	displayName: 'exports',
 
+	getInitialState: function getInitialState() {
+		return {
+			post: []
+		};
+	},
+	componentWillMount: function componentWillMount() {
+		var _this = this;
+
+		blogQuery.equalTo('Home', true);
+		blogQuery.find().then(function (products) {
+			console.log(products);
+			counter = 1;
+			_this.setState({ post: products });
+		});
+	},
+
 	render: function render() {
+		var count = 0;
+		if (counter == 1) {
+
+			ja = this.state.post.reverse().map(function (product) {
+
+				if (count == 0) {
+					count = count + 1;
+					return React.createElement(
+						'div',
+						{ className: 'row van' },
+						React.createElement('img', { className: 'vanpic col-xs-12 col-md-6', src: product.get('url') }),
+						React.createElement(
+							'div',
+							{ className: 'uvan col-xs-12 col-md-6' },
+							React.createElement(
+								'div',
+								null,
+								React.createElement(
+									'h2',
+									null,
+									product.get('Title')
+								)
+							),
+							React.createElement(
+								'div',
+								null,
+								product.get('Words')
+							)
+						)
+					);
+				} else {
+					return React.createElement('div', null);
+				}
+			});
+		}
+
 		return React.createElement(
 			'div',
 			null,
@@ -32948,16 +33025,7 @@ module.exports = React.createClass({
 			React.createElement(
 				'div',
 				{ className: 'container-fluid' },
-				React.createElement(
-					'div',
-					{ className: 'row van' },
-					React.createElement('img', { className: 'vanpic col-xs-12 col-md-6', src: 'images/new-van.jpg' }),
-					React.createElement(
-						'div',
-						{ className: 'uvan col-xs-12 col-md-6' },
-						'FFL RECENTLY RECEIVED A GENEROUS DONATION FROM ANOTHER AREA NON-PROFIT - THE FRANKLIN FAMILY RANCH. Larry and Charlotte Franklin have answered a prayer by donating a 15 passenger van to Friendships for Life. With this donation, we can now more than double the size of the program. THANK YOU!'
-					)
-				)
+				ja
 			),
 			React.createElement(
 				'div',
@@ -32982,7 +33050,7 @@ module.exports = React.createClass({
 
 });
 
-},{"react":161}],169:[function(require,module,exports){
+},{"../models/BlogModel":174,"react":161}],169:[function(require,module,exports){
 'use strict';
 
 var React = require('react');

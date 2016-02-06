@@ -136,9 +136,12 @@ nav button {
   padding-top: 1.5em; }
   .blogPage .xc {
     display: block;
-    margin: 1em auto;
+    margin: 1em 10%;
     font-size: 1.5em;
     width: 80%; }
+  .blogPage .cBox {
+    float: left;
+    margin-left: 10%; }
   .blogPage #pi2 {
     margin: 0 10%; }
   .blogPage #pi {
@@ -304,10 +307,13 @@ footer {
     width: 34%; }
   .uvan {
     font-size: 1.2em; }
+  .blogPage .cBox {
+    margin-left: 20%; }
   .blogPage #pi2 {
     margin: 0 20%; }
   .blogPage .xc {
-    width: 60%; }
+    width: 60%;
+    margin: 1em 20%; }
   .blogPage .saveBlog {
     margin-right: 20%; }
   .or .or1 {
