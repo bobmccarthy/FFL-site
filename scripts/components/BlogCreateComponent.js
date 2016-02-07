@@ -46,7 +46,7 @@ var picUrl = '';
 		        mimetype: 'image/*', 
 		        maxSize: 1024 * 1024 * 5, 
 		        imageMax: [1500, 1500], 
-		        cropRatio: 16/9, 
+		        cropRatio: 3/4, 
 		        services: ['*'] 
 		    }, 
 		    	function(blob) {

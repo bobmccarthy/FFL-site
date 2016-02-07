@@ -32372,11 +32372,63 @@ module.exports = require('./lib/React');
 'use strict';
 
 var React = require('react');
+var query = new Parse.Query(Parse.User);
+var staffy = React.createElement('div', null);
 
 module.exports = React.createClass({
 	displayName: 'exports',
 
+	getInitialState: function getInitialState() {
+		return {
+			staff: [],
+			counter: 0
+		};
+	},
+	componentWillMount: function componentWillMount() {
+		var _this = this;
+
+		query.find({
+			success: function success(emp) {
+				_this.setState({ staff: emp, counter: 1 });
+			}
+		});
+	},
 	render: function render() {
+		if (this.state.counter == 1) {
+			console.log(this.state.staff);
+			staffy = this.state.staff.map(function (each) {
+				return React.createElement(
+					'div',
+					{ key: each.id, className: 'staffBio box-shadow--4dp' },
+					React.createElement(
+						'div',
+						{ className: 'staffName' },
+						each.get('Name')
+					),
+					React.createElement('img', { className: 'staffPic', src: each.get('PicUrl') }),
+					React.createElement(
+						'div',
+						{ className: 'staffPos' },
+						each.get('Position')
+					),
+					React.createElement(
+						'div',
+						{ className: 'staffEmail' },
+						React.createElement(
+							'a',
+							{ href: 'mailto:' + each.get('email'), target: '_top' },
+							each.get('email')
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'flip' },
+						'+'
+					)
+				);
+			});
+		}
+
 		return React.createElement(
 			'div',
 			null,
@@ -32385,40 +32437,66 @@ module.exports = React.createClass({
 				{ className: 'textBlo' },
 				React.createElement(
 					'div',
-					{ className: 'box-shadow--2dp paragraph' },
-					'Friendships for Life (FFL) is a Community Prep program to help adults with disabilities live, work and serve the Texas Hill Country. Daily activities will include learning to come together as a ',
+					{ className: 'bioContainer' },
+					staffy
+				),
+				React.createElement(
+					'div',
+					{ className: 'paragraph' },
 					React.createElement(
-						'i',
+						'h1',
 						null,
-						'family'
+						'HELPING ADULTS WITH DISABILITIES LIVE WORK AND SERVE.'
 					),
-					' with things like beginning-of-day routines, exploring current events, continuing education in the areas of reading and math, putting together favorite recipes and everyone doing their part to help stay organized and on schedule.'
-				),
-				React.createElement(
-					'div',
-					{ className: 'box-shadow--2dp paragraph' },
-					'Our work will include projects such as helping run the Springs Food Pantry, making and marketing our arts and crafts, and expanding our greeting card business. We will also develop a work/serve program with local businesses, a beginner walking program and Bible study group all to include community "Joiners". Joiners can be anyone from the community who will participate with us in a reciprocally, beneficial way.  '
-				),
-				React.createElement(
-					'div',
-					{ className: 'box-shadow--2dp paragraph' },
-					'Friendships for Life members will participate in the community through volunteerism as well as becoming involved in other organizations of interest that host events in the area (DS Cook-off Club, Farmer`s Market, etc.). We will serve the elderly community through an "adopt a grandparent" program and visiting the skilled nursing center. FFL will also host events of our own to give local students and adults of all abilities a place to gather socially.'
-				),
-				React.createElement(
-					'div',
-					{ className: 'box-shadow--2dp paragraph' },
-					'With support from Friendships for Life, our Friends will participate in a new world where they will continue to learn employment skills, communication skills, how to develop friendships and adult living skills in order to build their greatest degree of independence.'
-				),
-				React.createElement(
-					'div',
-					{ className: 'box-shadow--2dp paragraph' },
-					'Our main goal is to help our members of FFL find a path where they are able to serve their community. Each path is different, and each path requires educating not only the person themselves, but also those they come in contact with in order to help them achieve their goals.'
+					React.createElement(
+						'div',
+						{ className: 'section1' },
+						React.createElement(
+							'h2',
+							null,
+							'Community Prep program'
+						),
+						React.createElement(
+							'p',
+							null,
+							'FFL helps adults with disabilities live, work and serve the Texas Hill Country'
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'section1' },
+						React.createElement(
+							'h2',
+							null,
+							'Daily Activities:'
+						),
+						React.createElement(
+							'p',
+							null,
+							'Beginning-of-day routines, exploring current events, continuing education in the areas of reading and math, putting together favorite recipes and everyone doing their part to help stay organized and on schedule.'
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'section1' },
+						React.createElement(
+							'h2',
+							null,
+							'Work and Projects'
+						),
+						React.createElement(
+							'p',
+							null,
+							'Our work will include projects such as helping run the Springs Food Pantry, making and marketing our arts and crafts, and expanding our greeting card business. We will develop a work/serve program with local businesses, a beginner walking program and Bible study group all to include the community.'
+						)
+					)
 				)
 			)
 		);
 	}
 
 });
+// <div className="pGraph">Friendships for Life (FFL) is a Community Prep program to help adults with disabilities live, work and serve the Texas Hill Country. Daily activities will include learning to come together as a <i>family</i> with things like beginning-of-day routines, exploring current events, continuing education in the areas of reading and math, putting together favorite recipes and everyone doing their part to help stay organized and on schedule.Our work will include projects such as helping run the Springs Food Pantry, making and marketing our arts and crafts, and expanding our greeting card business. We will also develop a work/serve program with local businesses, a beginner walking program and Bible study group all to include community "Joiners". Joiners can be anyone from the community who will participate with us in a reciprocally, beneficial way.  Friendships for Life members will participate in the community through volunteerism as well as becoming involved in other organizations of interest that host events in the area (DS Cook-off Club, Farmer`s Market, etc.). We will serve the elderly community through an "adopt a grandparent" program and visiting the skilled nursing center. FFL will also host events of our own to give local students and adults of all abilities a place to gather socially. With support from Friendships for Life, our Friends will participate in a new world where they will continue to learn employment skills, communication skills, how to develop friendships and adult living skills in order to build their greatest degree of independence. Our main goal is to help our members of FFL find a path where they are able to serve their community. Each path is different, and each path requires educating not only the person themselves, but also those they come in contact with in order to help them achieve their goals.</div>
 
 },{"react":161}],163:[function(require,module,exports){
 'use strict';
@@ -32447,7 +32525,7 @@ module.exports = React.createClass({
 			console.log(entry.get('url'));
 			return React.createElement(
 				'div',
-				{ className: 'eachEntry box-shadow--4dp' },
+				{ key: entry.id, className: 'eachEntry box-shadow--4dp' },
 				React.createElement(
 					'div',
 					{ className: 'titleTag' },
@@ -32560,7 +32638,7 @@ module.exports = React.createClass({
 			mimetype: 'image/*',
 			maxSize: 1024 * 1024 * 5,
 			imageMax: [1500, 1500],
-			cropRatio: 16 / 9,
+			cropRatio: 3 / 4,
 			services: ['*']
 		}, function (blob) {
 
@@ -32898,7 +32976,7 @@ module.exports = React.createClass({
 					count = count + 1;
 					return React.createElement(
 						'div',
-						{ className: 'row van' },
+						{ key: product.id, className: 'row van' },
 						React.createElement('img', { className: 'vanpic col-xs-12 col-md-6', src: product.get('url') }),
 						React.createElement(
 							'div',
@@ -33115,7 +33193,7 @@ module.exports = React.createClass({
 			null,
 			React.createElement(
 				'nav',
-				{ classNameName: 'navbar navbar-default navbar-fixed-top ' },
+				{ className: 'navbar navbar-default navbar-fixed-top' },
 				React.createElement(
 					'div',
 					{ className: 'container-fluid' },
@@ -33124,7 +33202,7 @@ module.exports = React.createClass({
 						{ className: 'navbar-header' },
 						React.createElement(
 							'button',
-							{ type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1', 'aria-expanded': 'false' },
+							{ id: 'menuButton', type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1', 'aria-expanded': 'false' },
 							React.createElement(
 								'span',
 								{ className: 'sr-only' },

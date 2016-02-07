@@ -1,5 +1,6 @@
 body {
-  margin: 0; }
+  margin: 0;
+  margin-top: 3.6em; }
 
 .friendships {
   color: #3879D9; }
@@ -19,6 +20,9 @@ body {
   width: 70%;
   text-align: center;
   margin: 0 auto; }
+
+#menuButton {
+  margin-bottom: 0; }
 
 nav button {
   background-color: grey; }
@@ -81,17 +85,39 @@ nav button {
   font-family: Lucida Sans;
   font-size: 2.5em; }
 
-.textBlo {
-  background-image: url("../images/Tigerpaw.jpg");
-  background-size: cover; }
-  .textBlo .paragraph {
-    background-color: rgba(0, 0, 0, 0.6);
-    width: 80%;
-    font-size: 1.4em;
-    margin: 0 auto 2em auto;
-    padding: 1em 2em;
-    color: white;
-    border-radius: 1em; }
+.textBlo .bioContainer {
+  background: linear-gradient(to bottom, white, #7FD4F9);
+  overflow: hidden;
+  padding: 2em 10%; }
+  .textBlo .bioContainer .staffBio {
+    background-color: white;
+    border-radius: 0.5em;
+    text-align: center;
+    width: 90%;
+    margin: 0.5em 5%;
+    float: left; }
+    .textBlo .bioContainer .staffBio img {
+      margin: 0 20%;
+      width: 60%; }
+    .textBlo .bioContainer .staffBio .staffName {
+      font-size: 1.5em; }
+    .textBlo .bioContainer .staffBio .flip {
+      float: right;
+      padding-right: 0.5em;
+      font-size: 2em; }
+
+.textBlo .paragraph {
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden; }
+  .textBlo .paragraph .section1 {
+    box-sizing: border-box;
+    width: 100%;
+    float: left;
+    padding: 0.5em; }
+    .textBlo .paragraph .section1 h2 {
+      color: #3879D9; }
 
 .galMain {
   height: 50em;
@@ -307,6 +333,15 @@ footer {
     width: 34%; }
   .uvan {
     font-size: 1.2em; }
+  .textBlo .bioContainer {
+    padding: 2em 10%; }
+    .textBlo .bioContainer .staffBio {
+      width: 40%;
+      margin: 0 5%; }
+    .textBlo .bioContainer .staffEmail {
+      font-size: 0.8em; }
+  .textBlo .paragraph .section1 {
+    width: 33%; }
   .blogPage .cBox {
     margin-left: 20%; }
   .blogPage #pi2 {

@@ -21,7 +21,7 @@ module.exports = React.createClass({
 		var table = this.state.posts.map((entry)=>{
 			console.log(entry.get('url'));
 			return(
-				<div className="eachEntry box-shadow--4dp">
+				<div key={entry.id} className="eachEntry box-shadow--4dp">
 					<div className="titleTag">{entry.get('Title')}</div>
 					
 					<div>	

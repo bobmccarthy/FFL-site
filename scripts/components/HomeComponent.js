@@ -30,7 +30,7 @@ module.exports = React.createClass({
 					if (count==0){
 						count=count+1;
 						return (
-							<div className="row van">
+							<div key={product.id} className="row van">
 								<img className="vanpic col-xs-12 col-md-6" src={product.get('url')}/>
 								<div className="uvan col-xs-12 col-md-6">
 									<div><h2>{product.get('Title')}</h2></div>
