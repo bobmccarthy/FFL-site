@@ -47,7 +47,7 @@ module.exports = React.createClass({
 					</div>
 
 					<div className="paragraph">
-						<h1>HELPING ADULTS WITH DISABILITIES LIVE WORK AND SERVE.</h1>
+						<h1>HELPING ADULTS WITH DISABILITIES LIVE, WORK AND SERVE.</h1>
 						<div className="section1">
 							<h2>Community Prep program</h2>
 							<p>FFL helps adults with disabilities live, work and serve the Texas Hill Country</p>

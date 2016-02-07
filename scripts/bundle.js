@@ -32446,7 +32446,7 @@ module.exports = React.createClass({
 					React.createElement(
 						'h1',
 						null,
-						'HELPING ADULTS WITH DISABILITIES LIVE WORK AND SERVE.'
+						'HELPING ADULTS WITH DISABILITIES LIVE, WORK AND SERVE.'
 					),
 					React.createElement(
 						'div',
