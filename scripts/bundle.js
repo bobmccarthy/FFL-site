@@ -32638,7 +32638,7 @@ module.exports = React.createClass({
 			mimetype: 'image/*',
 			maxSize: 1024 * 1024 * 5,
 			imageMax: [1500, 1500],
-			cropRatio: 3 / 4,
+			cropRatio: 16 / 9,
 			services: ['*']
 		}, function (blob) {
 
