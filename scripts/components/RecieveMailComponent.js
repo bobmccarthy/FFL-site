@@ -34,7 +34,7 @@ module.exports = React.createClass({
 				)
 		});
 		return(
-			<div>
+			<div className="receive-mail">
 				<div className="expText">Read Messages From People:</div>
 				{messageOutput}
 				<div className="backT">

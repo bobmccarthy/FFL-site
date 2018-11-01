@@ -7,8 +7,6 @@ module.exports = React.createClass({
 	render: function() {
 		return(
 			<div>
-				
-
 				<nav className="navbar navbar-default navbar-fixed-top">
 			  		<div className="container-fluid">
 			    		<div className="navbar-header">
@@ -36,15 +34,13 @@ module.exports = React.createClass({
 					<div>
 						<img className="photostrip" src="images/photostrip.jpg"/>
 					</div>
-					<div className="tagLine">A Texas Hill Country Community For Special Populations</div>
-					
+										
 					
 				</header>
 			</div>
 			)
 	},
 	collapseIt: function(){
-		console.log('clicked');
 		$('.navbar-collapse').collapse('hide');
 	}
 	

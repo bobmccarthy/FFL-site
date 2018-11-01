@@ -8,7 +8,7 @@ module.exports = React.createClass({
 	
 	render: function() {
 		return(
-			<div>
+			<div className="map-container">
 				
 				<div className="mapInfo">Here is where we live!! Come visit us sometime!<br/>
 					Our Address is: <br/>

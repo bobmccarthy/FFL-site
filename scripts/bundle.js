@@ -32395,7 +32395,6 @@ module.exports = React.createClass({
 	},
 	render: function render() {
 		if (this.state.counter == 1) {
-			console.log(this.state.staff);
 			staffy = this.state.staff.map(function (each) {
 				return React.createElement(
 					'div',
@@ -32522,7 +32521,6 @@ module.exports = React.createClass({
 	},
 	render: function render() {
 		var table = this.state.posts.map(function (entry) {
-			console.log(entry.get('url'));
 			return React.createElement(
 				'div',
 				{ key: entry.id, className: 'eachEntry box-shadow--4dp' },
@@ -32940,7 +32938,7 @@ module.exports = React.createClass({
 var React = require('react');
 var BlogModel = require('../models/BlogModel');
 var blogQuery = new Parse.Query(BlogModel);
-var counter = 0;
+var userQuery = new Parse.Query(Parse.User);
 var ja = React.createElement(
 	'div',
 	null,
@@ -32960,36 +32958,33 @@ module.exports = React.createClass({
 
 		blogQuery.equalTo('Home', true);
 		blogQuery.find().then(function (products) {
-			console.log(products);
-			counter = 1;
-			_this.setState({ post: products });
+			_this.setState({ post: products.reverse() });
 		});
 	},
 
 	render: function render() {
-		var count = 0;
-		if (counter == 1) {
 
-			ja = this.state.post.reverse().map(function (product) {
-
-				if (count == 0) {
-					count = count + 1;
+		if (this.state.post.length > 0) {
+			var count = 0;
+			ja = this.state.post.map(function (product) {
+				count++;
+				if (count == 1) {
 					return React.createElement(
 						'div',
 						{ key: product.id, className: 'row van' },
+						React.createElement(
+							'div',
+							null,
+							React.createElement(
+								'h2',
+								null,
+								product.get('Title')
+							)
+						),
 						React.createElement('img', { className: 'vanpic col-xs-12 col-md-6', src: product.get('url') }),
 						React.createElement(
 							'div',
 							{ className: 'uvan col-xs-12 col-md-6' },
-							React.createElement(
-								'div',
-								null,
-								React.createElement(
-									'h2',
-									null,
-									product.get('Title')
-								)
-							),
 							React.createElement(
 								'div',
 								null,
@@ -32998,7 +32993,7 @@ module.exports = React.createClass({
 						)
 					);
 				} else {
-					return React.createElement('div', null);
+					return React.createElement('div', { key: product.id });
 				}
 			});
 		}
@@ -33008,95 +33003,84 @@ module.exports = React.createClass({
 			null,
 			React.createElement(
 				'div',
-				null,
+				{ className: 'hero' },
 				React.createElement(
 					'div',
-					null,
-					React.createElement('img', { className: 'twistyt', src: 'images/bannerbow.jpg' })
-				),
-				React.createElement(
-					'div',
-					{ className: 'logo' },
-					React.createElement('img', { className: 'logo-text', src: 'images/logo-learn-serve.jpg' })
+					{ className: 'hero-text' },
+					React.createElement(
+						'h5',
+						null,
+						'A Texas Hill Country Community For Special Populations'
+					),
+					React.createElement(
+						'h2',
+						null,
+						'Friendships For Life'
+					)
 				)
 			),
 			React.createElement(
 				'div',
-				{ className: 'backgroundArea' },
+				{ className: 'i-logo' },
+				'I learn. I serve. I dream. I can!'
+			),
+			React.createElement(
+				'div',
+				{ className: 'around-all' },
 				React.createElement(
 					'div',
-					{ className: 'container-fluid' },
+					{ className: 'aroundOne box-shadow--4dp' },
+					React.createElement(
+						'h2',
+						null,
+						'I Learn'
+					),
 					React.createElement(
 						'div',
-						{ className: 'row' },
-						React.createElement(
-							'div',
-							{ className: 'aroundOne box-shadow--4dp' },
-							React.createElement(
-								'div',
-								{ className: 'ican col-xs-12 col-sm-4 col-md-2' },
-								'I Learn'
-							),
-							React.createElement('img', { className: 'saywhat col-xs-1', src: 'images/saywhat.jpg' }),
-							React.createElement(
-								'div',
-								{ className: 'textblock col-xs-11 col-sm-7 col-md-3' },
-								'Friendships For Life is building opportunities with our special populations to enrich and bless their communities by sharing their uniquely individual, God given purpose through friendships and service.'
-							)
-						),
-						React.createElement(
-							'div',
-							null,
-							React.createElement(
-								'div',
-								{ className: 'ican iserve col-xs-12 col-sm-4 col-md-2' },
-								'I Serve'
-							),
-							React.createElement(
-								'div',
-								{ className: 'textblock col-xs-11 col-sm-7 col-md-3' },
-								'The Dripping Springs Community Foundation invited Friendships for Life to participate in the "Givin\' Where I\'m Livin" campaign in 2014. All donations made to Friendships for Life were matched. For more info click the cowboy hat!'
-							),
-							React.createElement('img', { className: 'saywhat-right col-xs-1', src: 'images/saywhat-right.jpg' })
-						)
+						null,
+						'Friendships For Life is building opportunities with our special populations to enrich and bless their communities by sharing their uniquely individual, God given purpose through friendships and service.'
 					)
 				),
 				React.createElement(
 					'div',
-					{ className: 'container-fluid learnServe' },
+					{ className: 'aroundOne box-shadow--4dp' },
+					React.createElement(
+						'h2',
+						null,
+						'I Serve'
+					),
 					React.createElement(
 						'div',
-						{ className: 'row' },
-						React.createElement(
-							'div',
-							null,
-							React.createElement(
-								'div',
-								{ className: 'ican col-xs-12 col-sm-4 col-md-2' },
-								'I Dream'
-							),
-							React.createElement('img', { className: 'saywhat col-xs-1', src: 'images/saywhat.jpg' }),
-							React.createElement(
-								'div',
-								{ className: 'textblock col-xs-11 col-sm-7 col-md-3' },
-								'Our work will include projects such as helping run the Springs Food Pantry, making and marketing our arts and crafts, and expanding our greeting card business.'
-							)
-						),
-						React.createElement(
-							'div',
-							null,
-							React.createElement(
-								'div',
-								{ className: 'ican iserve col-xs-12 col-sm-4 col-md-2' },
-								'I Can'
-							),
-							React.createElement(
-								'div',
-								{ className: 'textblock col-xs-11 col-sm-7 col-md-3' },
-								'Our main goal is to help our members of FFL find a path where they are able to serve their community. Each path is different, and each path requires educating not only the person themselves, but also those they come in contact with in order to help them achieve their goals.'
-							),
-							React.createElement('img', { className: 'saywhat-right col-xs-1', src: 'images/saywhat-right.jpg' })
-						)
+						null,
+						'The Dripping Springs Community Foundation invited Friendships for Life to participate in the "Givin\' Where I\'m Livin" campaign in 2014. All donations made to Friendships for Life were matched. For more info click the cowboy hat!'
+					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'aroundOne box-shadow--4dp' },
+					React.createElement(
+						'h2',
+						null,
+						'I Dream'
+					),
+					React.createElement(
+						'div',
+						null,
+						'Our work will include projects such as helping run the Springs Food Pantry, making and marketing our arts and crafts, and expanding our greeting card business.'
+					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'aroundOne box-shadow--4dp' },
+					React.createElement(
+						'h2',
+						null,
+						'I Can'
+					),
+					React.createElement(
+						'div',
+						null,
+						'Our main goal is to help our members of FFL find a path where they are able to serve their community. Each path is different, and each path requires educating not only the person themselves, but also those they come in contact with in order to help them achieve their goals.'
 					)
 				)
 			),
@@ -33139,7 +33123,7 @@ module.exports = React.createClass({
 	render: function render() {
 		return React.createElement(
 			'div',
-			null,
+			{ className: 'map-container' },
 			React.createElement(
 				'div',
 				{ className: 'mapInfo' },
@@ -33311,17 +33295,11 @@ module.exports = React.createClass({
 					'div',
 					null,
 					React.createElement('img', { className: 'photostrip', src: 'images/photostrip.jpg' })
-				),
-				React.createElement(
-					'div',
-					{ className: 'tagLine' },
-					'A Texas Hill Country Community For Special Populations'
 				)
 			)
 		);
 	},
 	collapseIt: function collapseIt() {
-		console.log('clicked');
 		$('.navbar-collapse').collapse('hide');
 	}
 
@@ -33389,7 +33367,7 @@ module.exports = React.createClass({
 		});
 		return React.createElement(
 			'div',
-			null,
+			{ className: 'receive-mail' },
 			React.createElement(
 				'div',
 				{ className: 'expText' },

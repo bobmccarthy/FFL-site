@@ -20,7 +20,6 @@ module.exports = React.createClass({
 	},
 	render: function() {
 		if (this.state.counter==1){
-			console.log(this.state.staff);
 			staffy = this.state.staff.map((each)=>{
 				return(
 					<div key={each.id} className="staffBio box-shadow--4dp">

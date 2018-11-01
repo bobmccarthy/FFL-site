@@ -15,14 +15,7 @@ body{
 .dotcom{
 	color: grey;
 }
-.tagLine{
-	padding: 0.5em;
-	font-family: papyrus;
-	
-	width: 70%;
-	text-align: center;
-	margin: 0 auto;
-}
+
 #menuButton{
 	margin-bottom: 0;
 }
@@ -32,61 +25,100 @@ nav{
 		background-color: grey;
 	}
 }
+.navbar{
+	border-top: 5px solid #3879D9;
+}
+
 
 // ---------------------------Home Page==========================
 
 .photostrip{
-	box-sizing:border-box;
+	display: none;
+	box-sizing: border-box;
 	width: 100%;
 	border: .3em solid #FDDD9B;
 }
-.twistyt{
-	box-sizing:border-box;
-	width: 100%;
-	height: 6em;
+
+.hero{
+
+	background-image: url('../images/06180010a2.jpeg');
+	background-attachment: fixed;
+	background-position: center; 
+	background-size: cover;
+	background-repeat: no-repeat;
+	.hero-text{
+		padding: 5em 0;
+		color: white;
+		background-color: rgba(0, 0, 0, .5);
+		text-align: center;
+		font-family: papyrus;
+		h2{
+			// font-size: 5em;
+			padding: 0.6em 0;
+		}
+	}
 }
-.logo{
-	box-sizing: border-box;
-	// margin-top: -5em;
-	margin: 0 auto;
+@media screen and (min-width: 48em){
+	.hero{
+		.hero-text{
+			padding: 10em 0;
+			h2{
+				font-size: 5em;
+			}
+		}
+	}
+}
+
+
+
+// .logo-text{
+// 	box-sizing:border-box;
+// 	border-radius: 5em;
+// 	margin-top: -1.8em;
+// 	width: 70%;
+// 	margin-left: 15%;
+// }
+.i-logo{
+	// height: 10em;
+	// overflow: hidden;
+	font-family: cursive;
+	text-align: center;
+	background-color: #3879D9;
+	font-size: 3em;
+	padding: 1em;
 
 }
-.logo-text{
-	box-sizing:border-box;
-	border-radius: 5em;
-	margin-top: -1.8em;
-	width: 70%;
-	margin-left: 15%;
+.around-all{
+	overflow: hidden;
+	background-image: url('../images/06180080.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center; 
+	padding: 5%;
+
 }
 .aroundOne{
-	// background-size: cover;
-	// overflow: hidden;
-}
-.learnServe{
-	background-color: white;
-}
-.ican{
-	font-size: 1.8em;
-	color: red;
-	padding-top: 0.5em;
 	text-align: center;
-	font-family: cursive;
+	color: white;
+	background-color: rgba(0, 0, 0, .5);
+	box-sizing: border-box;
+	width: 95%;
+	margin: 2.5%;
+	padding: 1em;
+	float: left;
+	border-radius: 1em;
 }
 
-.textblock{
-	text-align: center;
-	font-family: futura;
-	padding-top: 0.5em;
-	height:12em;
-
+@media screen and (min-width: 48em){
+	.aroundOne{
+		width: 45%;
+		margin: 2.5%;
+		padding: 1em;
+	}
 }
-// .saywhat{
-// 	height:12em;
-// }
 
-// .saywhat-right{
-// 	height:12em;
-// }
+
+
 
 .van{
 	padding: 2em 2em;
@@ -190,6 +222,9 @@ nav{
 
 // --------------------------Map==========================
 
+.map-container{
+	margin-top: 6em;
+}
 .mapInfo{
 	margin: 1em;
 }
@@ -329,7 +364,7 @@ nav{
 .formTag{
 	text-align: center;
 	font-size: 1.5em;
-	margin-top: 1em;
+	margin-top: 4em;
 }
 .cForm{
 	width: 90%;
@@ -362,6 +397,7 @@ nav{
 
 .dash{
 	text-align: center;
+	margin-top: 10em;
 	height: 30em;
 	button{
 		background-color: #3879D9;
@@ -374,7 +410,9 @@ nav{
 }
 
 // =================================Receive===================================
-
+.receive-mail{
+	margin-top: 7em;
+}
 .expText{
 	font-size: 1.5em;
 	margin: 1em 10%;
@@ -490,23 +528,23 @@ footer{
 			}
 		}
 	}
-	.blogPage{
-		.cBox{
-			margin-left: 20%;
-		}
+	// .blogPage{
+	// 	.cBox{
+	// 		margin-left: 20%;
+	// 	}
 
-		#pi2{
-			margin: 0 20%;
+	// 	#pi2{
+	// 		margin: 0 20%;
 			
-		}
-		.xc{
-			width: 60%;
-			margin: 1em 20%;
-		}
-		.saveBlog{
-			margin-right: 20%;
-		}
-	}
+	// 	}
+	// 	.xc{
+	// 		width: 60%;
+	// 		margin: 1em 20%;
+	// 	}
+	// 	.saveBlog{
+	// 		margin-right: 20%;
+	// 	}
+	// }
 	.or{
 		.or1{
 			margin-right: 28%;
@@ -517,12 +555,12 @@ footer{
 			margin-right: 20%;
 		}
 	}
-	.eachEntry{
-	margin: 2% 20%;
-		.mesTag{
-			font-size: 1.25em;
-		}
-}
+// 	.eachEntry{
+// 	margin: 2% 20%;
+// 		.mesTag{
+// 			font-size: 1.25em;
+// 		}
+// }
 
 }
 
